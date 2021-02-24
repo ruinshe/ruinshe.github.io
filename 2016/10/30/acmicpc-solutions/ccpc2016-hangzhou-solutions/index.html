@@ -1,0 +1,865 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="browsermode" content="application">
+<meta name="apple-touch-fullscreen" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Ruins He's house">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="msapplication-navbutton-color" content="#666666">
+<meta name= "format-detection" content="telephone=no" />
+
+  <link rel="apple-touch-icon"  sizes="72x72"  href="/favicon.png">
+  <link rel="apple-touch-icon-precomposed"  sizes="72x72"  href="/favicon.png">
+
+
+  <meta name="subtitle" content="Enjoy the daily life">
+
+
+  <meta name="description" content="Ruins He's personal website">
+
+
+
+  <meta name="keywords" content="acm-icpc, nlvi" />
+
+
+<link rel="apple-touch-startup-image" media="(device-width: 375px)" href="assets/apple-launch-1125x2436.png">
+<link rel="apple-touch-startup-image" media="(orientation: landscape)" href="assets/apple-touch-startup-image-2048x1496.png">
+
+<link rel="stylesheet" href="/style/style.css">
+
+<script>
+  var nlviconfig = {
+    title: "Ruins He's house",
+    author: "Ruins He",
+    baseUrl: "/",
+    theme: {
+      scheme: "banderole",
+      lightbox: true,
+      animate: true,
+      search: true,
+      friends: false,
+      reward: false,
+      pjax: false,
+      lazy: false,
+      toc: false
+    }
+  }
+</script>
+
+
+
+
+    
+<link rel="stylesheet" href="/script/lib/lightbox/css/lightbox.min.css">
+
+
+
+
+
+    
+<link rel="stylesheet" href="/syuanpi/syuanpi.min.css">
+
+
+
+
+
+    <link rel="icon" href="/favicon.png">
+
+
+
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-48752963-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-48752963-1');
+</script>
+
+
+
+
+
+
+
+<style>
+@font-face {
+  font-family: "Allura";
+  src: url('/font/allura/allura.ttf');
+}
+</style>
+
+  <title> CCPC2016 Hangzhou solutions · Ruins He's house </title>
+<meta name="generator" content="Hexo 4.1.1"><link rel="alternate" href="/rss2.xml" title="Ruins He's house" type="application/rss+xml">
+</head>
+<body>
+  <div class="container">
+    <header class="header" id="header">
+  <div class="header-wrapper">
+    <div class="logo">
+  <div class="logo-inner syuanpi tvIn" style="display:none;">
+    <h1><a href="/">Ruins He's house</a></h1>
+    
+      <span id="subtitle">Enjoy the daily life</span>
+    
+  </div>
+</div>
+
+    <div class="contact-icon">
+  
+  
+    <a href="https://www.facebook.com/https://www.facebook.com/profile.php?id=100013610087878" target="_blank" rel="noopener" class="iconfont icon-facebook" title="facebook"></a>
+  
+    <a href="https://twitter.com/https://twitter.com/ruinshe1" target="_blank" rel="noopener" class="iconfont icon-twitter" title="twitter"></a>
+  
+    <a href="https://weibo.com/https://weibo.com/ruinshe" target="_blank" rel="noopener" class="iconfont icon-weibo" title="weibo"></a>
+  
+    <a href="https://www.zhihu.com/people/https://www.zhihu.com/people/ruins-he/activities" target="_blank" rel="noopener" class="iconfont icon-zhihu" title="zhihu"></a>
+  
+    <a href="https://github.com/https://github.com/ruinshe" target="_blank" rel="noopener" class="iconfont icon-github" title="github"></a>
+  
+</div>
+
+    <nav class="main-nav">
+  
+  <ul class="main-nav-list syuanpi tvIn">
+  
+    <li class="menu-item">
+      <a href="javascript:;" id="search-btn" aria-label="Search">
+        <i class="iconfont icon-search"></i>
+      </a>
+    </li>
+  
+  
+  
+    
+  
+    <li class="menu-item">
+      <a href="/" id="article">
+        <span class="base-name">
+          
+            キジ
+          
+        </span>
+      </a>
+    </li>
+  
+  
+    
+  
+    <li class="menu-item">
+      <a href="/archives" id="archives">
+        <span class="base-name">
+          
+            アーカイブ
+          
+        </span>
+      </a>
+    </li>
+  
+  
+    
+  
+    <li class="menu-item">
+      <a href="javascript:;" id="tags">
+        <span class="base-name">
+          
+            タグ
+          
+        </span>
+      </a>
+    </li>
+  
+  
+    
+  
+    <li class="menu-item">
+      <a href="/about" id="about">
+        <span class="base-name">
+          
+            ついて
+          
+        </span>
+      </a>
+    </li>
+  
+  
+    
+  
+    <li class="menu-item">
+      <a href="/rss2.xml" id="RSS">
+        <span class="base-name">
+          
+            購読
+          
+        </span>
+      </a>
+    </li>
+  
+  
+  </ul>
+  
+</nav>
+
+  </div>
+</header>
+<div class="mobile-header" id="mobile-header">
+  <div class="mobile-header-nav">
+    <div class="mobile-header-item" id="mobile-left">
+      <div class="header-menu-item">
+        <div class="header-menu-line"></div>
+      </div>
+    </div>
+    <h1 class="mobile-header-title">
+      <a href="/">Ruins He's house</a>
+    </h1>
+    <div class="mobile-header-item"></div>
+  </div>
+  <div class="mobile-header-body">
+    <ul class="mobile-header-list">
+      
+        <li class="mobile-nav-item syuanpi fadeInRightShort back-0">
+          <a href="/" >
+            
+              キジ
+            
+          </a>
+        </li>
+      
+        <li class="mobile-nav-item syuanpi fadeInRightShort back-1">
+          <a href="/archives" >
+            
+              アーカイブ
+            
+          </a>
+        </li>
+      
+        <li class="mobile-nav-item syuanpi fadeInRightShort back-2">
+          <a href="javascript:;" id="mobile-tags">
+            
+              タグ
+            
+          </a>
+        </li>
+      
+        <li class="mobile-nav-item syuanpi fadeInRightShort back-3">
+          <a href="/about" >
+            
+              ついて
+            
+          </a>
+        </li>
+      
+        <li class="mobile-nav-item syuanpi fadeInRightShort back-4">
+          <a href="/rss2.xml" >
+            
+              購読
+            
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+</div>
+
+
+
+    <div class="container-inner" style="display:none;">
+      <main class="main" id="main">
+        <div class="main-wrapper">
+          
+    
+  
+  <article class="
+  post
+   is_post 
+  ">
+    <header class="post-header">
+      <div class="post-time syuanpi fadeInRightShort back-1">
+        <div class="post-time-wrapper">
+          
+          <time>2016-10-30</time>
+          
+            
+              <span class="post-category"><a href="/categories/acm-icpc-solutions/">acm-icpc-solutions</a></span>
+            
+          
+        </div>
+      </div>
+      <h2 class="post-title syuanpi fadeInRightShort back-2">
+        
+          CCPC2016 Hangzhou solutions
+        
+      </h2>
+    </header>
+    <div class="post-content syuanpi fadeInRightShort back-3">
+      
+        <h3 id="ArcSoft’s-Office-Rearrangement"><a href="#ArcSoft’s-Office-Rearrangement" class="headerlink" title="ArcSoft’s Office Rearrangement"></a>ArcSoft’s Office Rearrangement</h3><p>Tags: <code>数学</code></p>
+<p>我们令每一块的长度是\(y\)，则有</p>
+<p>\[y = \frac{\sum_{i = 1}^{n} a_i}{K}\]</p>
+<p>假设我们有\(\sum a\)个人站成一排，那么他们一定是在\(p \mod y = 0\)的位置\(p\)上被分开，而对于\(p \mod y \neq 0\)的位置，一定是合并的。对于每一个块\(j\)，我们算出前缀和</p>
+<p>\[s = \sum_{i=1}^{j} a_i \mod y\]</p>
+<p>然后呢，对于这一块前面的不被整除的部分要合并到前面一块去，中间完整整除的一些块就分成，剩下的最后多余出来的和后面合并就可以了。</p>
+<p>总体复杂度：\(O(n)\)</p>
+<h3 id="Bomb"><a href="#Bomb" class="headerlink" title="Bomb"></a>Bomb</h3><p>Tagso: <code>图论</code>, <code>几何</code></p>
+<p>建一个有向图，如果\(d(u, v) \leq r_u\)的话，就从\(u\)向\(v\)连条边。连完全部的边之后求出图的所有强连通分量，如果一个连通分量是有入边的，那么就说明这个分量中的所有点都是不需要点燃的（可以由入边的分量中任意一个爆炸来点燃它们），所以最后的答案就是对于每个入度为\(0\)的分量中的最小代价点求和。</p>
+<p>总体复杂度：\(O(n^2)\)</p>
+<h3 id="Car"><a href="#Car" class="headerlink" title="Car"></a>Car</h3><p>Tags: <code>贪心</code></p>
+<p>由于速度是不断变大的，所以最后一段的时间为\(1\)的时候是最优的，对于相邻的两段，我们有</p>
+<p>\[v_i \leq v_{i + 1}\]</p>
+<p>稍稍做个转化，则变成了</p>
+<p>\[\frac{l_i}{t_i} \leq \frac{l_{i + 1}}{t_{i + 1}}\]</p>
+<p>然后做计算就可以了。</p>
+<p>复杂度：\(O(n)\)</p>
+<h3 id="Difference"><a href="#Difference" class="headerlink" title="Difference"></a>Difference</h3><p>Tags: <code>meet in middle</code></p>
+<p>首先，我们有\(11 \times 9^9 &lt; 10^{10}\)，我们可以得到\(y\)的范围是\(y &lt; 10^{10}\)。我们假设\(y = a \times 10^5 + b\)，我们有</p>
+<p>\[f(y, K) = f(a, K) + f(b, K)]\]</p>
+<p>做个简单的转化</p>
+<p>\[f(y, K) - y = f(a, K) - 10^5 \times a + f(b, K) - b\]</p>
+<p>我们在\(a \in [0, 10^5)\)范围内枚举\(f(a, K) - 10^5 \times a\)的值，然后把它们扔进一个hash表里去，然后枚举\(b \in [0, 10^5)\)计算\(x - (f(b, K) - b)\)的值，然后去hash表里查下看看它们在不在就可以了。</p>
+<p>总体复杂度：\(O(5 \times 10^5)\)</p>
+<h3 id="Equation"><a href="#Equation" class="headerlink" title="Equation"></a>Equation</h3><p>Tags: <code>分类讨论</code>, <code>搜索</code></p>
+<p>把这些等式分成三个大类</p>
+<ol>
+<li>形如\(1 + x = x + 1\), 这里\(x \geq 1\)，\(x \leq 8\), 总共有\(8\)种不同的等式</li>
+<li>形如\(x + x = 2 \cdot x\), 这里\(x \geq 2\)，\(x \leq 4\), 总共有\(3\)种不同的等式</li>
+<li>形如\(x + y = z\), 这里\(x \neq 1\)，\(x &lt; y\), 总共有\(9\)种不同的等式</li>
+</ol>
+<p>对于第二类的每一种等式，我们有两种选择方法，不选这个等式，或者选了这个等式。而对于第三类的每一种等式，我们有三种选择，要么都不选，要么选了其中一种，要么两种都选了。对于第一类，我们可以暴力贪心计算出在选了第二类和第三类之后还可以最多构成多少种第一类的等式。</p>
+<p>对于实现，可以搜索第二类和第三类，贪心第一类，或者状压之类的？</p>
+<p>总体复杂度：\(O(3^9 \times 2^3 \times 9)\)</p>
+<h3 id="Four-Operations"><a href="#Four-Operations" class="headerlink" title="Four Operations"></a>Four Operations</h3><p>Tags: <code>暴力</code>, <code>表达式求值</code></p>
+<p>假设这个式子可以写成</p>
+<p>\[y = a + b - c \times d\ /\ e\]</p>
+<p>对于式子中的后半部分\(c \times d\ /\ e\), \(c\)和\(d\)应该只保留一位，让最后的答案最小。而对于\(e\)，它最多只会有两位，这是因为\(c \times d &lt; 100\)并且，如果你用了三位让后半部分从一个一位数变成了\(0\)，还不如省下那一位让前半部分尽量大。</p>
+<p>对于前半部分，\(a\)和\(b\)一定是一个一位数加一个多位数。所以我们只要枚举加号和除号的位置就可以定下来最后式子长什么样了。</p>
+<p>总体复杂度：\(O(2 \times 2 \times n)\)</p>
+<h3 id="Game-of-Eliminate"><a href="#Game-of-Eliminate" class="headerlink" title="Game of Eliminate"></a>Game of Eliminate</h3><p>Tags: <code>动态规划</code></p>
+<p>我们设\(a_i\)为第\(i\)列的最高的<code>*</code>的高度，注意这里我们从底下开始，\(1\)开始标高度。定义状态</p>
+<p>\[dp[i][j]\]</p>
+<p>表示我们已经把第\(i - 1\)列和它之前的全部<code>*</code>部分消完，而第\(i\)列的没有消去的高度还有\(j\)的状态的最小开销，那么有状态转移方程</p>
+<p>\[dp[i + 1][\max(0, a_i - k)] = \min(dp[i][j] + \frac{j + k}{3})\]</p>
+<p>这里\(2 \times u + v = j\)且\(2 \times v + u = k\)</p>
+<p>转化一下</p>
+<p>\[dp[i + 1][a_i - k] = \min(dp[i][j] + (j + k)\ /\ 3)\]</p>
+<p>\[3 \times dp[i + 1][a_i - k] + (a_i - k) = 3 \times dp[i][j] + j + a_i\]</p>
+<p>边界限制：\((j + k) \mod 3 = 0)且(\frac{j}{2} \leq k \leq 2 \times j\)</p>
+<p>用单调队列大概可以优化一波。</p>
+<p>总体复杂度：\(O(n \times m)\)</p>
+<h3 id="Hazy-String"><a href="#Hazy-String" class="headerlink" title="Hazy String"></a>Hazy String</h3><p>Tags: <code>动态规划</code>, <code>矩阵</code></p>
+<p>由于字符串不能包含超过\(1\)长度的回文串，那么对于所有长度为\(2\)和\(3\)的子串，它们一定不是回文，而且这是个充要条件。那么对于一个位置\(p\)的字符，它的选择只和\(p + k, -2 \leq k \leq 2\)位置上的字符有关。</p>
+<p>定义\(m\)是出现过的字符的数量，将它们标号为\(0\)到\(m - 1\)。定义状态</p>
+<p>[dp[i][j]\]</p>
+<p>表示我们现在在考虑位置\(p_i\)并且\(p_i - 1\)上的字符是\(j\)，这里\(j \in [0, m]\)，\(m\)表示那些没出现过的字符，可以统一考虑。</p>
+<p>对于两个位置之间的部分，假设我们在考虑一个子串</p>
+<p>\[j,\ v_i,\ \cdots,\ x,\ y\]</p>
+<p>由于每一个位置上的字符只和它的前两位有关系，我们定义一个状态</p>
+<p>\[w(a, b)\]</p>
+<p>表示\(j,\ v_i\)和\(x,\ y\)的关系，其中\(a,\ b \in [0, 2]\)，\(a\)表示\(j\)和\(x\)的关系，\(b\)表示\(v_i\)和\(y\)的关系。\(a=0\)表示\(x=j\)，\(a=1\)表示\(x=v_i\)，而\(a=2\)表示\(x\)和前面两个都不一样，\(b\)也是对应的表示状态。</p>
+<p>我们可以构建出一个矩阵来做\(p_i\)到\(p_{i + 1}\)之间的转移，而\(dp[i+1][k]\)的值等价于\(x=k\)且\(y = v_{i+1}\)的时候的值。</p>
+<p>总体复杂度：\(O(n \times m + 7^3 \times n \lg L)\)</p>
+<h3 id="Inequality"><a href="#Inequality" class="headerlink" title="Inequality"></a>Inequality</h3><p>Tags: <code>数学</code></p>
+<p>我们定义函数\(b(i) = \min \sum_{k=1}^{i} x_k\)，通过观察可以发现，它是一个关于\(x_i\)值的分段函数，而且每一段的值可以写成如下形式</p>
+<p>\[u \times x + \frac{v}{x} + w\]</p>
+<p>函数\(b(i)\)只有一个全局极小值，可以递推出\(b(i)\)关于\(x_i\)的每一段分段函数长什么样子，然后算出全局的极小值。</p>
+<p>总体复杂度：\(O(n^2)\)</p>
+<h3 id="Just-a-Math-Problem"><a href="#Just-a-Math-Problem" class="headerlink" title="Just a Math Problem"></a>Just a Math Problem</h3><p>Tags: <code>数论</code></p>
+<p>定义\(m = p_1^{r_1} \times p_2^{r_2} \times \cdots \times p_k^{r_k}\)且\(f(m) = k\)</p>
+<p>\(g(m)\)可以成满足\((x, y) = 1) and (x \times y = m\)的数对\(x\), \(y\)的数量。那么\(\sum_{i}^{n} g(i)\)就是满足\((x, y) = 1\)且\(x \times y \leq n\)的数对的数量。</p>
+<p>我们假设\(x&lt;y\)，我们可以枚举\(x\)，容斥出\(y\)的数量（假设是\(Y\)），\(y\)满足条件\((x, y) = 1\)且\(1 \leq y \leq n\)。对于枚举的\(x\)，答案是\(Y - \phi(x)\)。</p>
+<p>总体复杂度：\(O(\sqrt{n} \lg n)\)</p>
+<h3 id="Kingdom-of-Obsession"><a href="#Kingdom-of-Obsession" class="headerlink" title="Kingdom of Obsession"></a>Kingdom of Obsession</h3><p>Tags: <code>匹配</code>, <code>数论</code></p>
+<p>我们定义\(b_i = s + i\)，如果\(b_i \leq n\)，那么最优的做法一定是把它放在原来自己的位置上，这里可以反证一下，如果\(b_i\)放在了\(p\)上，而且\(p &lt; b_i\)，我们一定可以把\(b_i\)和放在\(p\)上的另外一个比\(b_i\)大的数交换。</p>
+<p>对于\(b_i &gt; n\)的情况，如果这样的\(b_i\)中素数超过了\(1\)个，那么一定是无解的，因为素数只能放在自己的位置或者\(1\)上，而对于不超过一个素数的情况，这样的\(b_i\)的数量会非常少（姑且认为是\(100\)个最多了？），对于这些数，假设有\(m\)个的话，我们就让它们和\(1\)到\(m\)这些位置做匹配就可以了。</p>
+<p>另外，给个贪心的反例：\(n = 5, s = 11\)。</p>
+<p>总体复杂度：\(O(m^3)\)</p>
+
+      
+    
+    </div>
+    
+      <div class="post-tags syuanpi fadeInRightShort back-3">
+      
+        <a href="/tags/acm-icpc/">acm-icpc</a>
+      
+      </div>
+    
+    
+      
+
+      
+    
+  </article>
+  
+    
+  <nav class="article-page">
+    
+      <a href="/2016/12/14/acmicpc-solutions/china-final-2016-problem-c/" id="art-left" class="art-left">
+        <span class="next-title">
+          <i class="iconfont icon-left"></i>China Final 2016 C题瞎扯淡
+        </span>
+      </a>
+    
+    
+      <a href="/2016/05/31/development/support-mathjax-in-angular2/" id="art-right" class="art-right">
+        <span class="prev-title">
+          Supports MathJax in angular2 with TypeScript<i class="iconfont icon-right"></i>
+        </span>
+      </a>
+    
+  </nav>
+
+
+    
+  <i id="com-switch" class="iconfont icon-down jumping-in long infinite" style="font-size:24px;display:block;text-align:center;transform:rotate(180deg);"></i>
+  <div class="post-comments" id="post-comments" style="display: block;margin: auto 16px;">
+    
+
+    
+    
+<!-- Disqus Comments -->
+<div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript" target="_blank" rel="noopener">comments powered by Disqus.</a></noscript>
+</div>
+<script type="text/javascript">
+    var disqus_shortname = 'ruins-hes-house';
+
+    (function(){
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+    
+
+  </div>
+
+
+
+  
+  
+    
+  
+
+
+  
+
+
+        </div>
+      </main>
+      <footer class="footer syuanpi fadeIn" id="footer">
+  <hr>
+  <div class="footer-wrapper">
+    <div class="right">
+      <div class="copyright">
+    <div class="info">
+        <span>&copy;</span>
+        <span>2012 ~ 2020</span>
+        <span>❤</span>
+        <span>Ruins He</span>
+    </div>
+    <div class="theme">
+        <span>
+            Powered by
+            <a href="http://hexo.io/" target="_blank" rel="noopener">Hexo </a>
+        </span>
+        <span>
+            Theme
+            <a href="https://github.com/ColMugX/hexo-theme-Nlvi" target="_blank" rel="noopener"> Nlvi </a>
+        </span>
+    </div>
+    
+</div>
+
+    </div>
+  </div>
+</footer>
+    </div>
+    <div class="tagcloud" id="tagcloud">
+  <div class="tagcloud-taglist">
+  
+    <div class="tagcloud-tag">
+      <button>acm-icpc</button>
+    </div>
+  
+    <div class="tagcloud-tag">
+      <button>essay</button>
+    </div>
+  
+    <div class="tagcloud-tag">
+      <button>git</button>
+    </div>
+  
+    <div class="tagcloud-tag">
+      <button>emacs</button>
+    </div>
+  
+    <div class="tagcloud-tag">
+      <button>projectile</button>
+    </div>
+  
+    <div class="tagcloud-tag">
+      <button>web</button>
+    </div>
+  
+    <div class="tagcloud-tag">
+      <button>hexo</button>
+    </div>
+  
+    <div class="tagcloud-tag">
+      <button>docker</button>
+    </div>
+  
+    <div class="tagcloud-tag">
+      <button>jekyll</button>
+    </div>
+  
+    <div class="tagcloud-tag">
+      <button>macos</button>
+    </div>
+  
+    <div class="tagcloud-tag">
+      <button>homebrew</button>
+    </div>
+  
+    <div class="tagcloud-tag">
+      <button>tips</button>
+    </div>
+  
+    <div class="tagcloud-tag">
+      <button>certbot</button>
+    </div>
+  
+    <div class="tagcloud-tag">
+      <button>rsync</button>
+    </div>
+  
+  </div>
+  
+    <div class="tagcloud-postlist active">
+      <h2>acm-icpc</h2>
+      
+        <div class="tagcloud-post">
+          <a href="/2016/04/07/acmicpc-solutions/cdoj-preliminary-2016-K/">
+            <time class="tagcloud-posttime">2016 / 04 / 07</time>
+            <span>一类区间动态规划的优化 - Key Words</span>
+          </a>
+        </div>
+      
+        <div class="tagcloud-post">
+          <a href="/2016/12/14/acmicpc-solutions/china-final-2016-problem-c/">
+            <time class="tagcloud-posttime">2016 / 12 / 14</time>
+            <span>China Final 2016 C题瞎扯淡</span>
+          </a>
+        </div>
+      
+        <div class="tagcloud-post">
+          <a href="/2016/10/30/acmicpc-solutions/ccpc2016-hangzhou-solutions/">
+            <time class="tagcloud-posttime">2016 / 10 / 30</time>
+            <span>CCPC2016 Hangzhou solutions</span>
+          </a>
+        </div>
+      
+        <div class="tagcloud-post">
+          <a href="/2015/10/22/acmicpc-solutions/ccpc2015-summaries/">
+            <time class="tagcloud-posttime">2015 / 10 / 22</time>
+            <span>CCPC2015 简单题解</span>
+          </a>
+        </div>
+      
+        <div class="tagcloud-post">
+          <a href="/2016/01/31/acmicpc-solutions/ecfinal2015-solutions/">
+            <time class="tagcloud-posttime">2016 / 01 / 31</time>
+            <span>ACM/ICPC EC-Final 2015 简单题解</span>
+          </a>
+        </div>
+      
+        <div class="tagcloud-post">
+          <a href="/2015/11/29/acmicpc-solutions/shanghai2015-summaries/">
+            <time class="tagcloud-posttime">2015 / 11 / 29</time>
+            <span>ACM/ICPC 2015 regional Shanghai onsite 简单题解</span>
+          </a>
+        </div>
+      
+        <div class="tagcloud-post">
+          <a href="/2012/02/24/essay/talk-about-acm-icpc/">
+            <time class="tagcloud-posttime">2012 / 02 / 24</time>
+            <span>论ACM ICPC</span>
+          </a>
+        </div>
+      
+    </div>
+  
+    <div class="tagcloud-postlist ">
+      <h2>essay</h2>
+      
+        <div class="tagcloud-post">
+          <a href="/2016/12/14/acmicpc-solutions/china-final-2016-problem-c/">
+            <time class="tagcloud-posttime">2016 / 12 / 14</time>
+            <span>China Final 2016 C题瞎扯淡</span>
+          </a>
+        </div>
+      
+    </div>
+  
+    <div class="tagcloud-postlist ">
+      <h2>git</h2>
+      
+        <div class="tagcloud-post">
+          <a href="/2019/12/22/development/auto-update-version-for-git/">
+            <time class="tagcloud-posttime">2019 / 12 / 22</time>
+            <span>git push前自动检查版本号</span>
+          </a>
+        </div>
+      
+        <div class="tagcloud-post">
+          <a href="/2015/08/07/development/remove-unused-git-history/">
+            <time class="tagcloud-posttime">2015 / 08 / 07</time>
+            <span>Git - 删除无用的文件历史记录</span>
+          </a>
+        </div>
+      
+        <div class="tagcloud-post">
+          <a href="/2018/06/18/development/serve-static-website-in-server-using-git/">
+            <time class="tagcloud-posttime">2018 / 06 / 18</time>
+            <span>Serve Static Website in a Server using Git</span>
+          </a>
+        </div>
+      
+    </div>
+  
+    <div class="tagcloud-postlist ">
+      <h2>emacs</h2>
+      
+        <div class="tagcloud-post">
+          <a href="/2018/09/11/development/customize-your-own-projectile-project/">
+            <time class="tagcloud-posttime">2018 / 09 / 11</time>
+            <span>Customize your own projectile project in Emacs</span>
+          </a>
+        </div>
+      
+    </div>
+  
+    <div class="tagcloud-postlist ">
+      <h2>projectile</h2>
+      
+        <div class="tagcloud-post">
+          <a href="/2018/09/11/development/customize-your-own-projectile-project/">
+            <time class="tagcloud-posttime">2018 / 09 / 11</time>
+            <span>Customize your own projectile project in Emacs</span>
+          </a>
+        </div>
+      
+    </div>
+  
+    <div class="tagcloud-postlist ">
+      <h2>web</h2>
+      
+        <div class="tagcloud-post">
+          <a href="/2018/06/18/development/serve-static-website-in-server-using-git/">
+            <time class="tagcloud-posttime">2018 / 06 / 18</time>
+            <span>Serve Static Website in a Server using Git</span>
+          </a>
+        </div>
+      
+        <div class="tagcloud-post">
+          <a href="/2018/08/02/development/serve-hexo-blog-using-docker/">
+            <time class="tagcloud-posttime">2018 / 08 / 02</time>
+            <span>Serve Hexo blog using Docker</span>
+          </a>
+        </div>
+      
+        <div class="tagcloud-post">
+          <a href="/2019/04/01/development/setup-your-website-using-https/">
+            <time class="tagcloud-posttime">2019 / 04 / 01</time>
+            <span>Setup your HTTPS website using Certbot</span>
+          </a>
+        </div>
+      
+    </div>
+  
+    <div class="tagcloud-postlist ">
+      <h2>hexo</h2>
+      
+        <div class="tagcloud-post">
+          <a href="/2018/08/02/development/serve-hexo-blog-using-docker/">
+            <time class="tagcloud-posttime">2018 / 08 / 02</time>
+            <span>Serve Hexo blog using Docker</span>
+          </a>
+        </div>
+      
+    </div>
+  
+    <div class="tagcloud-postlist ">
+      <h2>docker</h2>
+      
+        <div class="tagcloud-post">
+          <a href="/2018/08/02/development/serve-hexo-blog-using-docker/">
+            <time class="tagcloud-posttime">2018 / 08 / 02</time>
+            <span>Serve Hexo blog using Docker</span>
+          </a>
+        </div>
+      
+    </div>
+  
+    <div class="tagcloud-postlist ">
+      <h2>jekyll</h2>
+      
+        <div class="tagcloud-post">
+          <a href="/2015/06/14/development/install-jekyll-in-mac/">
+            <time class="tagcloud-posttime">2015 / 06 / 14</time>
+            <span>MacOS下用Homebrew配置jekyll</span>
+          </a>
+        </div>
+      
+    </div>
+  
+    <div class="tagcloud-postlist ">
+      <h2>macos</h2>
+      
+        <div class="tagcloud-post">
+          <a href="/2015/06/14/development/install-jekyll-in-mac/">
+            <time class="tagcloud-posttime">2015 / 06 / 14</time>
+            <span>MacOS下用Homebrew配置jekyll</span>
+          </a>
+        </div>
+      
+    </div>
+  
+    <div class="tagcloud-postlist ">
+      <h2>homebrew</h2>
+      
+        <div class="tagcloud-post">
+          <a href="/2015/06/14/development/install-jekyll-in-mac/">
+            <time class="tagcloud-posttime">2015 / 06 / 14</time>
+            <span>MacOS下用Homebrew配置jekyll</span>
+          </a>
+        </div>
+      
+    </div>
+  
+    <div class="tagcloud-postlist ">
+      <h2>tips</h2>
+      
+        <div class="tagcloud-post">
+          <a href="/2015/12/27/tips/use-12306-in-ubuntu-by-firefox/">
+            <time class="tagcloud-posttime">2015 / 12 / 27</time>
+            <span>Ubuntu系统下用Firefox访问12306</span>
+          </a>
+        </div>
+      
+        <div class="tagcloud-post">
+          <a href="/2016/05/31/development/support-mathjax-in-angular2/">
+            <time class="tagcloud-posttime">2016 / 05 / 31</time>
+            <span>Supports MathJax in angular2 with TypeScript</span>
+          </a>
+        </div>
+      
+    </div>
+  
+    <div class="tagcloud-postlist ">
+      <h2>certbot</h2>
+      
+        <div class="tagcloud-post">
+          <a href="/2019/04/01/development/setup-your-website-using-https/">
+            <time class="tagcloud-posttime">2019 / 04 / 01</time>
+            <span>Setup your HTTPS website using Certbot</span>
+          </a>
+        </div>
+      
+    </div>
+  
+    <div class="tagcloud-postlist ">
+      <h2>rsync</h2>
+      
+        <div class="tagcloud-post">
+          <a href="/2019/12/18/development/i-remove-my-work-folders/">
+            <time class="tagcloud-posttime">2019 / 12 / 18</time>
+            <span>我误删了我的日常工作目录 - 记一次命令行误操作</span>
+          </a>
+        </div>
+      
+    </div>
+  
+</div>
+
+  </div>
+  <div class="backtop syuanpi melt toTop" id="backtop">
+    <i class="iconfont icon-up"></i>
+    <span style="text-align:center;font-family:Georgia;"><span style="font-family:Georgia;" id="scrollpercent">1</span>%</span>
+</div>
+
+  <div class="search" id="search">
+    <div class="input">
+      <input type="text" id="search-input" placeholder="搜索一下？" autofocus>
+    </div>
+    <div id="search-result"></div>
+  </div>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+
+
+
+  <script></script>
+  <script src="/script/lib/lightbox/js/lightbox.min.js" async></script>
+
+
+
+
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script>
+    MathJax = {
+      tex: {
+        tags: 'ams'
+      }
+    };
+  </script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+
+
+
+
+
+
+
+  
+<script src="/script/scheme/banderole.js"></script>
+
+
+
+
+<script src="/script/bootstarp.js"></script>
+
+
+
+<script>
+if (nlviconfig.theme.toc) {
+  setTimeout(function() {
+    if (nlviconfig.theme.scheme === 'balance') {
+      $("#header").addClass("show_toc");
+    } else if (nlviconfig.theme.scheme === 'banderole') {
+      $(".container-inner").addClass("has_toc");
+      $(".post-toc .title").addClass("show");
+      $(".toc-inner").addClass("show");
+    }
+  }, 1000);
+}
+</script>
+
+
+
+</body>
+</html>
