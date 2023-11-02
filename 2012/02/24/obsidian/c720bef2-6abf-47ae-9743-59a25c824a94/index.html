@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.0.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha256-CTSx/A06dm1B063156EVh15m6Y67pAjZZaQc89LLSrU=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"ruinshe.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.18.2","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="这段时间老是有许多新人向我问到 ACM 相关的问题。比如它与工作的关系，对我以后的工作到底有没有帮助？还比如说第二年的训练计划应该是什么样的？还有的孩子问到，我寒假玩儿的一个寒假，又该怎么办？ 看到这些问题，我自己也感慨万千，一眨眼自己在这方面也涉猎了两年多了，经过那一段时间的纠结，最终还是决定第三年继续。大家选择 ACM 的理由的很多很多，为了以后方便找工作？充实生活？巩固学科基础？不管是为了功">
+<meta property="og:type" content="article">
+<meta property="og:title" content="论 ACM ICPC">
+<meta property="og:url" content="https://ruinshe.github.io/2012/02/24/obsidian/c720bef2-6abf-47ae-9743-59a25c824a94/index.html">
+<meta property="og:site_name" content="Ruins He&#39;s house">
+<meta property="og:description" content="这段时间老是有许多新人向我问到 ACM 相关的问题。比如它与工作的关系，对我以后的工作到底有没有帮助？还比如说第二年的训练计划应该是什么样的？还有的孩子问到，我寒假玩儿的一个寒假，又该怎么办？ 看到这些问题，我自己也感慨万千，一眨眼自己在这方面也涉猎了两年多了，经过那一段时间的纠结，最终还是决定第三年继续。大家选择 ACM 的理由的很多很多，为了以后方便找工作？充实生活？巩固学科基础？不管是为了功">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2012-02-24T00:44:00.000Z">
+<meta property="article:modified_time" content="2023-11-02T01:34:21.314Z">
+<meta property="article:author" content="Ruins He">
+<meta property="article:tag" content="acm-icpc">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://ruinshe.github.io/2012/02/24/obsidian/c720bef2-6abf-47ae-9743-59a25c824a94/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://ruinshe.github.io/2012/02/24/obsidian/c720bef2-6abf-47ae-9743-59a25c824a94/","path":"2012/02/24/obsidian/c720bef2-6abf-47ae-9743-59a25c824a94/","title":"论 ACM ICPC"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>论 ACM ICPC | Ruins He's house</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-48752963-1"></script>
+  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"UA-48752963-1","only_pageview":false}</script>
+  <script src="/js/third-party/analytics/google-analytics.js"></script>
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/rss2.xml" title="Ruins He's house" type="application/rss+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Ruins He's house</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">Enjoy the daily life</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%88%91%E4%BB%AC%E5%8F%AF%E4%BB%A5%E4%BB%8E-acm-%E4%B8%AD%E5%AD%A6%E5%88%B0%E4%BB%80%E4%B9%88"><span class="nav-number">1.</span> <span class="nav-text"> 我们可以从 ACM 中学到什么？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#acm-%E9%9C%80%E8%A6%81%E7%9A%84%E6%98%AF%E5%9D%9A%E6%8C%81%E8%80%8C%E4%B8%8D%E6%98%AF%E4%B8%89%E5%88%86%E9%92%9F%E7%83%AD%E5%BA%A6"><span class="nav-number">2.</span> <span class="nav-text"> ACM 需要的是坚持而不是三分钟热度</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%B3%E4%BA%8E-acm-%E7%9A%84%E7%A7%8D%E7%A7%8D%E5%B0%8F%E4%BA%8B"><span class="nav-number">3.</span> <span class="nav-text"> 关于 ACM 的种种小事</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BA%A4%E6%B5%81%E6%98%AF%E9%87%8D%E4%B8%AD%E4%B9%8B%E9%87%8D"><span class="nav-number">3.1.</span> <span class="nav-text"> 交流是重中之重</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%81%9A%E4%BA%8B%E8%A6%81%E6%9C%89%E4%B8%80%E4%B8%AA%E6%95%B4%E4%BD%93%E8%A7%84%E5%88%92"><span class="nav-number">3.2.</span> <span class="nav-text"> 做事要有一个整体规划</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%8B%E6%9C%8D%E5%AF%B9%E6%96%B0%E7%9F%A5%E8%AF%86%E7%9A%84%E6%8A%B5%E8%A7%A6%E5%BF%83%E7%90%86"><span class="nav-number">3.3.</span> <span class="nav-text"> 克服对新知识的抵触心理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81%E8%B6%8A%E7%9F%AD%E8%B6%8A%E5%A5%BD-or-%E5%86%99%E7%9A%84%E4%BB%A3%E7%A0%81%E8%B6%8A%E9%95%BF%E8%AF%B4%E6%98%8E%E8%87%AA%E5%B7%B1%E8%B6%8A%E7%89%9B"><span class="nav-number">3.4.</span> <span class="nav-text"> 代码越短越好 or 写的代码越长说明自己越牛？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E6%88%91%E6%8A%95%E5%85%A5%E4%BA%86%E8%BF%99%E4%B9%88%E5%A4%9A%E5%8D%B4%E6%B2%A1%E6%9C%89%E5%BE%97%E5%88%B0%E5%9B%9E%E6%8A%A5"><span class="nav-number">3.5.</span> <span class="nav-text"> 为什么我投入了这么多却没有得到回报？</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%B0%88%E8%B0%88-acm-%E7%9A%84%E5%AD%A6%E4%B9%A0%E6%B0%9B%E5%9B%B4"><span class="nav-number">4.</span> <span class="nav-text"> 谈谈 ACM 的学习氛围</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#scl-%E5%88%B0%E5%BA%95%E6%98%AF%E5%A5%BD%E6%98%AF%E5%9D%8F"><span class="nav-number">5.</span> <span class="nav-text"> SCL 到底是好是坏？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#acm-%E4%B8%8E%E5%A4%A7%E5%AD%A6%E7%94%9F%E6%B4%BB"><span class="nav-number">6.</span> <span class="nav-text"> ACM 与大学生活</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Ruins He"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">Ruins He</p>
+  <div class="site-description" itemprop="description">Ruins He's personal website</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">20</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">15</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/ruinshe" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;ruinshe" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:lyhypacm@gmail.com" title="E-Mail → mailto:lyhypacm@gmail.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://weibo.com/ruinshe" title="Weibo → https:&#x2F;&#x2F;weibo.com&#x2F;ruinshe" rel="noopener me" target="_blank"><i class="fab fa-weibo fa-fw"></i>Weibo</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://plus.google.com/lyhypacm" title="Google → https:&#x2F;&#x2F;plus.google.com&#x2F;lyhypacm" rel="noopener me" target="_blank"><i class="fab fa-google fa-fw"></i>Google</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://twitter.com/ruinshe1" title="Twitter → https:&#x2F;&#x2F;twitter.com&#x2F;ruinshe1" rel="noopener me" target="_blank"><i class="fab fa-twitter fa-fw"></i>Twitter</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/rss2.xml" title="RSS → &#x2F;rss2.xml" rel="noopener me"><i class="fa fa-rss fa-fw"></i>RSS</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+    <div class="sidebar-inner sidebar-blogroll">
+      <div class="links-of-blogroll animated">
+        <div class="links-of-blogroll-title"><i class="fa fa-globe fa-fw"></i>
+          链接
+        </div>
+        <ul class="links-of-blogroll-list">
+            <li class="links-of-blogroll-item">
+              <a href="https://ruinshe.github.io/" title="https:&#x2F;&#x2F;ruinshe.github.io">我的博客</a>
+            </li>
+        </ul>
+      </div>
+    </div>
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://ruinshe.github.io/2012/02/24/obsidian/c720bef2-6abf-47ae-9743-59a25c824a94/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Ruins He">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ruins He's house">
+      <meta itemprop="description" content="Ruins He's personal website">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="论 ACM ICPC | Ruins He's house">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          论 ACM ICPC
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2月 24日, 2012 08:44:00" itemprop="dateCreated datePublished" datetime="2012-02-24T08:44:00+08:00">2月 24日, 2012</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/essay/" itemprop="url" rel="index"><span itemprop="name">essay</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>这段时间老是有许多新人向我问到 ACM 相关的问题。比如它与工作的关系，对我以后的工作到底有没有帮助？还比如说第二年的训练计划应该是什么样的？还有的孩子问到，我寒假玩儿的一个寒假，又该怎么办？</p>
+<p>看到这些问题，我自己也感慨万千，一眨眼自己在这方面也涉猎了两年多了，经过那一段时间的纠结，最终还是决定第三年继续。大家选择 ACM 的理由的很多很多，为了以后方便找工作？充实生活？巩固学科基础？不管是为了功利心理也好，还是纯粹的兴趣也罢，最后共同的结果就是我们选择了 ACM 作为自己大学生活的一部分。</p>
+<span id="more"></span>
+<h3 id="我们可以从-acm-中学到什么"><a class="markdownIt-Anchor" href="#我们可以从-acm-中学到什么"></a> 我们可以从 ACM 中学到什么？</h3>
+<p>首先，作为一个团队活动，我们可以从中感受到团队合作的魅力，只可以感受团队合作给我们带来有那种不一样的感觉，当然，也可以从中认识更多的志同道合的朋友。</p>
+<p>其次，ACM 是一个学习的过程，对我来说，在这两年里，我自己学到了许多上课不会涉及的东西，自己吸收其它方面知识变得更快了，对于即将从事 IT 产业的我们来说，学习能力是一个非常重要的能力。</p>
+<p>最后，要取得好的成绩，我们要掌握许许多多的知识，而大部分的知识，都是计算机学科、数学学科的基础，比如说微积分、线性代数、概率论、数据结构等等。</p>
+<h3 id="acm-需要的是坚持而不是三分钟热度"><a class="markdownIt-Anchor" href="#acm-需要的是坚持而不是三分钟热度"></a> ACM 需要的是坚持而不是三分钟热度</h3>
+<p>大一开班会的时候提及到过大学四年的规划，记得当时选这个的人挺多的，坚持半年的也很多，但是到了大一下学期，一个寒假回来，坚持下来的就没有几个了，而到了最后参加讲座的就更少了。这说明的什么？可能是没有兴趣吧，ACM 是一个需要坚持的竞赛活动，不是简简单单的混个三、四个月就可以有成绩的，只因为付出了，才会有后来的回报。</p>
+<p>很久以前就听学长们说了一句话</p>
+<blockquote>
+<p>ACM ICPC 不应该成为大学生活的全部，但是我们却时常后悔没有把我们的全部投入进去。</p>
+</blockquote>
+<p>很多人常常在失败的时候抱怨自己的队友，把失败归咎于自己的团队，当然也有人把所有的责任推到自己的身上。我们要记住，ACM 是三个人的活动，不是你一个人的，更不是你队友的。三个人坚持下来了，我们要的不一定是得到辉煌的成就，最主要的还是那深厚的友谊加上和朋友们一起奋斗的过程。</p>
+<h3 id="关于-acm-的种种小事"><a class="markdownIt-Anchor" href="#关于-acm-的种种小事"></a> 关于 ACM 的种种小事</h3>
+<h4 id="交流是重中之重"><a class="markdownIt-Anchor" href="#交流是重中之重"></a> 交流是重中之重</h4>
+<p>成为集训队的成员已经有两年的时光了，在每年新的一轮训练开始时，最经常见到的就是一个新人的队伍，甚至是有一定配合的老队伍的三个人，各自做各自的，从始至终都没有什么交流，说的最多的就是这题过了，这题挂了，或者是你先下来，我先写另外一道，等等。切记一点，ACM 是三个人的活动，并不是 1+1+1 那么简单的，如果三个人各自为战，这和个人活动有什么区别？1+1+1&lt;1 是常常遇到的事儿，出现这类问题最主要的原因就是各自为战。</p>
+<h4 id="做事要有一个整体规划"><a class="markdownIt-Anchor" href="#做事要有一个整体规划"></a> 做事要有一个整体规划</h4>
+<p>到现在，我见到的最多的解题策略，包括我自己曾经用的，都是 reading-thinking-coding-thinking-coding-debug-thinking-debug-submit。对于一个中档题来说，这个过程可能需要 30 到 50 分钟不等，往往很多人觉得 50 分钟和 30 分钟是没区别的。在过题之后估计整个过程，许多人会把实际上是 50 分钟的时间估计成半小时，然后就觉得时间充裕。不管是做 ACM 也好，平时做事也罢，有一个非常重要的环节，那就是 Programming，这可不是 Programmer 相关的单词，而是 Dynamic Programming 中的 Programming，它是规划的意思，相同的一个 ACM 问题，如果你在上机前多花 5 分钟规划，你可以在 coding 和 debug 阶段省下很多的时间。记住，理想的解题过程应该是 reading-thinking-programming-coding-debug-submit，甚至对代码能力好的人来说，debug 这个环节可以省略。</p>
+<h4 id="克服对新知识的抵触心理"><a class="markdownIt-Anchor" href="#克服对新知识的抵触心理"></a> 克服对新知识的抵触心理</h4>
+<p>第一年训练结束之后，队伍解散，我也开始新知识的储备，那时候对 DP 有着很大的抵触心理，后来在寒假逼着自己看了几篇 DP 优化相关的论文，结果虽说不上喜欢上了 DP，至少对 DP 的抵触心理小了很多。世上不存在什么不可能学会的知识，我们要做的仅仅是培养兴趣而已。</p>
+<h4 id="代码越短越好-or-写的代码越长说明自己越牛"><a class="markdownIt-Anchor" href="#代码越短越好-or-写的代码越长说明自己越牛"></a> 代码越短越好 or 写的代码越长说明自己越牛？</h4>
+<p>我想一定的不少人觉得代码越短越好，或者代码越长说明自己越强。很明显这种想法并没有任何的科学性。coding 是一门艺术，拿 coding 和写文章作对比，可谓大同小异，作为一个团队的成员，我们要做的是使自己的 <code>文章</code> 可读性更强，而不是刻意地去压缩、扩充自己的代码。解题的过程，个人能力差异最小的就是 coding 在过程，差异最大的是 thking 和 debug 的时间。代码比别人的长了点儿，coding 多花了时间，但是 debug 的时候队友可以给自己更多的帮助不是么？</p>
+<h4 id="为什么我投入了这么多却没有得到回报"><a class="markdownIt-Anchor" href="#为什么我投入了这么多却没有得到回报"></a> 为什么我投入了这么多却没有得到回报？</h4>
+<p>很多人，包括我自己，都遇到过这类问题。当遇到这类问题的时候，有的人会选择退却，有的人会选择反思，当然也有人选择不管不问，使用以往的方式继续下去。遇到这类问题，我们要做的事就是找到问题的根源，我想最大的一个原因，就是不够专注。何谓专注？专注不是一整天只吃一顿饭，即使逃课也要训练，专注也不是花大量的时间，只学了本来一个小时就可以学会的知识。高中的时候，很多同学问我为什么做作业比他们快，其实高中的时候效率高的原因仅仅是不在做作业的时候听音乐而已（我发现自己没法做到那样的状态了，训练的时候没法做到原来那么专注，有点可惜）。在训练的时候，我习惯把电脑静音，拔去散热器的电源，我不希望散热底座风扇转动的声音影响自己的思考，虽然我的思维很慢。有的人（有时候我也有这样的毛病）喜欢在训练还没结束的时候就在群里得瑟，或者在训练一半的时候发现剩下的题目自己肯定没戏，就放弃了。我觉得这都不是一个好的习惯，养成好的习惯可以让你有更大的成就的。</p>
+<h3 id="谈谈-acm-的学习氛围"><a class="markdownIt-Anchor" href="#谈谈-acm-的学习氛围"></a> 谈谈 ACM 的学习氛围</h3>
+<p>我常见到很多人在群里抱怨题目看不懂，当然也不排除这些题目描述真的写得很渣的原因。如果一套题，特别是好题，你发现自己很多题都看不懂意思的话，那只能说你有点浮躁了。</p>
+<p>虽然不愿意这么说，但这却是事实，做 ACM 最需要的是一个氛围，一个平常十分融洽，训练的时候却严肃的氛围。其实我不喜欢训练的时候开玩笑，以前不少老队员和我说：何老师，你的表情太呆板啦，和我们一样嘻嘻哈哈的多好。我可能习惯了，平时都不会嘻嘻哈哈的，但是我并不反对平时没有训练的时候大家活跃一点，毕竟大家是在一个集体之中，需要更多的沟通交流。我也不反对平时一起玩游戏、一起听音乐、杀人、三国杀，娱乐活动是生活不可缺少的一部分，这我还是知道的。但是在训练的时候得瑟、逛社交网络、在 QQ 空间里瞎逛就不可取了。</p>
+<p>凡事都不会是绝对公平的，不管在什么情况下，不公平的事可谓是屡见不鲜了。copy 他人的代码（或者自己以前写的代码），太过于 <code>乐于助人</code> 等等。我想很多人在前期会有想不出来马上就看题解的习惯，慢慢演变成了这样，当他意识到事情的严重性的时候，却很难改正了。甚至有人并没有意识到这里面对自己的危害有多深，而到了最后的赛场才后悔莫及。</p>
+<h3 id="scl-到底是好是坏"><a class="markdownIt-Anchor" href="#scl-到底是好是坏"></a> SCL 到底是好是坏？</h3>
+<p>SCL，大部分人称其为 <code>模板</code> <code>模块</code> <code>标程</code> 等，对很多人来说，可能是比赛场上必不可少的 <code>武器</code> 吧？不过我的观点是能不用就不用，大多数人使用 SCL 的原因是其中的代码并不是他自己实现的，有可能是 google 的，或者其他队员、学长实现的。我并不反对这种行为，但是比赛比的就是代码实现能力，至少，你要对这份代码相当熟悉才行。</p>
+<p>之所以不推荐用 SCL，主要的原因是它会阻碍代码能力的提升，习惯用 SCL 之后，你会发现自己写代码越来越容易写挂，1Y 率大幅度下降，随着自己学的东西越来越多，积累的 SCL 越多，代码能力就下降的越快。SCL 仅仅是为了正式比赛心安的一个工具，而不是训练的工具。</p>
+<h3 id="acm-与大学生活"><a class="markdownIt-Anchor" href="#acm-与大学生活"></a> ACM 与大学生活</h3>
+<p>作为 ACMer，我认为 ACM 给我带来最多的好处，那就是充实了我的大学生活，让我喜欢上了看课外书。看书不能囫囵吞枣，否则你可能连原理都掌握不了。此外，最重要的是实践，一个新的算法，要自己试着实现。当然，实现之前一定要理清步骤，另一方面，我们还需要通过和他人的交流，让自己对某方面的知识的理解更进一步。</p>
+<p>还有一个和我们大学生活相关的话题，那就是 GPA。很多人因为 ACM 把学业扔了而挂了很多科，这可以说他们把时间全花在 ACM 上了么？当然不能。曾经问过学长类似的问题，得到的答案就是 GPA 相比 ACM 来说，公司虽然看中能力，但是更看中基础课的掌握程度，而 GPA 就是表现这个的最方便的方式。GPA 说明了一个人对待学习的态度，也表现了一个人的学习能力。总而言之，我的建议地能不挂科就不挂科，毕竟挂科后要花更多时间去折腾自己的学业。</p>
+<p>最后，想提及一下作息时间的问题，大一大二作息时间一天比一天混乱，特别是周末或者课少的时候，本人熟悉的 ACMer 中，有 90%的是夜猫子，每天 2、3 点睡觉都是常事，而这样的作息时间导致了白天精神萎靡的情况。最近一直 11 点睡 7 点起，上课没有犯困过，感觉良好。</p>
+<p>不管怎么说，既然要把 ACM 作为自己大学生活的全部，那么就认真地投入吧，好好享受这个过程才是最关键的不是么？</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/acm-icpc/" rel="tag"># acm-icpc</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+            </div>
+            <div class="post-nav-item">
+                <a href="/2015/06/14/obsidian/d58ac588-efef-4682-9277-ff51d990731d/" rel="next" title="MacOS 下用 Homebrew 配置 jekyll">
+                  MacOS 下用 Homebrew 配置 jekyll <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2012 – 
+    <span itemprop="copyrightYear">2023</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Ruins He</span>
+  </div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">false</script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css" integrity="sha256-UF1fgpAiu3tPJN/uCqEUHNe7pnr+QR0SQDNfgglgtcM=" crossorigin="anonymous">
+
+
+
+</body>
+</html>

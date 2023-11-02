@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.0.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha256-CTSx/A06dm1B063156EVh15m6Y67pAjZZaQc89LLSrU=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"ruinshe.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.18.2","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="某天做日常工作的时候遇到了一个小问题，有一个在远程的开发机（不是任何的部署环境）中的测试不能通过。因为相同的测试在本地是可以通过的，于是我打算将远程的代码目录直接通过 rsync 同步到本地来二次检查测试是不是由于不同内核导致，还是由于测试顺序随机导致的。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="我误删了我的日常工作目录 - 记一次命令行误操作">
+<meta property="og:url" content="https://ruinshe.github.io/2019/12/18/obsidian/cca8bce5-c791-4f4d-949f-90417eb888a3/index.html">
+<meta property="og:site_name" content="Ruins He&#39;s house">
+<meta property="og:description" content="某天做日常工作的时候遇到了一个小问题，有一个在远程的开发机（不是任何的部署环境）中的测试不能通过。因为相同的测试在本地是可以通过的，于是我打算将远程的代码目录直接通过 rsync 同步到本地来二次检查测试是不是由于不同内核导致，还是由于测试顺序随机导致的。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2019-12-18T07:10:00.000Z">
+<meta property="article:modified_time" content="2023-11-02T01:34:24.528Z">
+<meta property="article:author" content="Ruins He">
+<meta property="article:tag" content="rsync">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://ruinshe.github.io/2019/12/18/obsidian/cca8bce5-c791-4f4d-949f-90417eb888a3/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://ruinshe.github.io/2019/12/18/obsidian/cca8bce5-c791-4f4d-949f-90417eb888a3/","path":"2019/12/18/obsidian/cca8bce5-c791-4f4d-949f-90417eb888a3/","title":"我误删了我的日常工作目录 - 记一次命令行误操作"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>我误删了我的日常工作目录 - 记一次命令行误操作 | Ruins He's house</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-48752963-1"></script>
+  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"UA-48752963-1","only_pageview":false}</script>
+  <script src="/js/third-party/analytics/google-analytics.js"></script>
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/rss2.xml" title="Ruins He's house" type="application/rss+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Ruins He's house</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">Enjoy the daily life</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-overview-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Ruins He"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">Ruins He</p>
+  <div class="site-description" itemprop="description">Ruins He's personal website</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">20</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">15</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/ruinshe" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;ruinshe" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:lyhypacm@gmail.com" title="E-Mail → mailto:lyhypacm@gmail.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://weibo.com/ruinshe" title="Weibo → https:&#x2F;&#x2F;weibo.com&#x2F;ruinshe" rel="noopener me" target="_blank"><i class="fab fa-weibo fa-fw"></i>Weibo</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://plus.google.com/lyhypacm" title="Google → https:&#x2F;&#x2F;plus.google.com&#x2F;lyhypacm" rel="noopener me" target="_blank"><i class="fab fa-google fa-fw"></i>Google</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://twitter.com/ruinshe1" title="Twitter → https:&#x2F;&#x2F;twitter.com&#x2F;ruinshe1" rel="noopener me" target="_blank"><i class="fab fa-twitter fa-fw"></i>Twitter</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/rss2.xml" title="RSS → &#x2F;rss2.xml" rel="noopener me"><i class="fa fa-rss fa-fw"></i>RSS</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+    <div class="sidebar-inner sidebar-blogroll">
+      <div class="links-of-blogroll animated">
+        <div class="links-of-blogroll-title"><i class="fa fa-globe fa-fw"></i>
+          链接
+        </div>
+        <ul class="links-of-blogroll-list">
+            <li class="links-of-blogroll-item">
+              <a href="https://ruinshe.github.io/" title="https:&#x2F;&#x2F;ruinshe.github.io">我的博客</a>
+            </li>
+        </ul>
+      </div>
+    </div>
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://ruinshe.github.io/2019/12/18/obsidian/cca8bce5-c791-4f4d-949f-90417eb888a3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Ruins He">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ruins He's house">
+      <meta itemprop="description" content="Ruins He's personal website">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="我误删了我的日常工作目录 - 记一次命令行误操作 | Ruins He's house">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          我误删了我的日常工作目录 - 记一次命令行误操作
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：12月 18日, 2019 15:10:00" itemprop="dateCreated datePublished" datetime="2019-12-18T15:10:00+08:00">12月 18日, 2019</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/development/" itemprop="url" rel="index"><span itemprop="name">development</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>某天做日常工作的时候遇到了一个小问题，有一个在远程的开发机（不是任何的部署环境）中的测试不能通过。因为相同的测试在本地是可以通过的，于是我打算将远程的代码目录直接通过 <code>rsync</code> 同步到本地来二次检查测试是不是由于不同内核导致，还是由于测试顺序随机导致的。</p>
+<span id="more"></span>
+<p>我在自己的 <code>group</code> 目录，执行了如下的指令将远程的某个 <code>project</code> 子目录同步到当前的 <code>project</code> 目录下：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rsync --delete -e ssh -v -r remote-development-server:~/group/project/ .</span><br></pre></td></tr></table></figure>
+<p>当同步完了之后，<code>ls</code> 发现所有的文件被同步到当前目录而不是 <code>project</code> 下，而且由于加了 <code>--delete</code> 参数，我的当前分组目录下的子目录全部被删除了。这次命令之后，我从记忆中罗列了一下在本地开发环境的损失：</p>
+<ul>
+<li>若干的本地配置被删除，包括比较敏感的不会被 check in 到 repostiory 的文件，和若干 <code>.dir-locals.el</code> 配置。</li>
+<li>两个比较常用的本地脚本项目（由于只是个人使用，没有做远程备份或者是其它位置的备份）。</li>
+<li>（可能存在的）一些微小的本地项目改动，不过由于个人有随手 commit 并同步到远程的习惯，有的话也不会是特别大的改动。</li>
+</ul>
+<p>由于本地目前没有做过于小时间范围内的数据自动同步，基本上就只能重新 clone 远程的代码了。这件事发生之后，我就每次执行命令行的时候都有点疑神疑鬼的，感觉需要一个 NFS 才能拯救我。为了防止命令行误操作导致不可预知的数据损失，我还特地看了一下 <code>rsync</code> 命令的几个比较有特点的同步表现：</p>
+<p>第一种是，如果源位置的目录是没有以 <code>/</code> 结尾的，那么包括源目录本身会被复制到目标目录，比如</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">rsync -v -r source . # copy to ./source</span><br><span class="line">rsync -v -r source destination # copy to destination/source</span><br></pre></td></tr></table></figure>
+<p>另外一种是，源位置的目录后加了<code>/</code>，表示这个目录内部的文件复制到目标目录（不包括源目录自己），比如</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">rsync -v -r source/ . # copy to ./</span><br><span class="line">rsync -v -r source/ destination # copy to destination/</span><br></pre></td></tr></table></figure>
+<p>这种情况下，相当于把 <code>source</code> 目录中的文件复制到目标目录，如果你加了 <code>--delete</code> 参数，那么目标目录下的无关文件和目录都会被删除。</p>
+<p>至于为什么我会删除掉了的工作目录，是因为我用了 <code>oh-my-zsh</code>，虽然我的配置会自动删除目录之后的 <code>/</code>，但是我一时脑抽，看自动删除就加回去了，就导致了这个悲剧发生。关于平时用 <code>rsync</code> 的注意点，建议少加 <code>--delete</code> 参数，或者用之前先 <code>--dry-run</code> 一下，另外，用第一种做法可以防止类似的事发生，如果你想要将 <code>source/folder</code> 备份到 <code>destination/folder</code>，建议在 <code>destination</code> 目录执行第一种命令。</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/rsync/" rel="tag"># rsync</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2019/04/01/obsidian/b0879869-9bc9-4cf6-8d5d-f9a59fc8e788/" rel="prev" title="Setup your HTTPS website using Certbot">
+                  <i class="fa fa-angle-left"></i> Setup your HTTPS website using Certbot
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2019/12/22/auto-update-version-for-git/" rel="next" title="git push 前自动检查版本号">
+                  git push 前自动检查版本号 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2012 – 
+    <span itemprop="copyrightYear">2023</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Ruins He</span>
+  </div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">false</script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css" integrity="sha256-UF1fgpAiu3tPJN/uCqEUHNe7pnr+QR0SQDNfgglgtcM=" crossorigin="anonymous">
+
+
+
+</body>
+</html>
