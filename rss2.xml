@@ -9,7 +9,7 @@
     <atom:link href="https://ruinshe.github.io/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>Ruins He&#39;s personal website</description>
-    <pubDate>Sun, 05 Nov 2023 07:50:10 GMT</pubDate>
+    <pubDate>Sun, 05 Nov 2023 09:10:59 GMT</pubDate>
     <generator>http://hexo.io/</generator>
     
     <item>
@@ -37,6 +37,32 @@
       
       
       <comments>https://ruinshe.github.io/2023/11/05/obsidian/7b89a1b1-b4f6-442a-8002-32e046f525e0/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>压缩 WSL2 的虚拟磁盘</title>
+      <link>https://ruinshe.github.io/2023/06/07/obsidian/7b7e8787-da60-4964-bb92-5d924176696a/</link>
+      <guid>https://ruinshe.github.io/2023/06/07/obsidian/7b7e8787-da60-4964-bb92-5d924176696a/</guid>
+      <pubDate>Wed, 07 Jun 2023 15:43:00 GMT</pubDate>
+      
+        
+        
+      <description>&lt;p&gt;在使用 WSL2 的时候，我们有的时候会因为不断增减文件，导致对应的虚拟磁盘的文件大小远超过预期，并且需要进行清理，我们可以通过 &lt;code&gt;diskpart&lt;/code&gt; 打开虚拟磁盘管理工具，然后通过如下命令进行操作&lt;sup class=&quot;footnote-ref&quot;&gt;&lt;</description>
+        
+      
+      
+      
+      <content:encoded><![CDATA[<p>在使用 WSL2 的时候，我们有的时候会因为不断增减文件，导致对应的虚拟磁盘的文件大小远超过预期，并且需要进行清理，我们可以通过 <code>diskpart</code> 打开虚拟磁盘管理工具，然后通过如下命令进行操作<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup>：</p><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">select</span> vdisk file=<span class="string">&quot;D:\Arch\ext4.vhdx&quot;</span></span><br><span class="line">compact vdisk</span><br></pre></td></tr></table></figure><div class="note warning"><p style="text-decoration: underline;">关于文件路径</p><p><code>diskpart</code> 工具选择磁盘的时候，需要绝对路径。</p></div><hr class="footnotes-sep" /><section class="footnotes"><ol class="footnotes-list"><li id="fn1" class="footnote-item"><p><a href="https://stephenreescarter.net/how-to-shrink-a-wsl2-virtual-disk/">https://stephenreescarter.net/how-to-shrink-a-wsl2-virtual-disk/</a> <a href="#fnref1" class="footnote-backref">↩︎</a></p></li></ol></section>]]></content:encoded>
+      
+      
+      <category domain="https://ruinshe.github.io/categories/development/">development</category>
+      
+      
+      <category domain="https://ruinshe.github.io/tags/devops/">devops</category>
+      
+      
+      <comments>https://ruinshe.github.io/2023/06/07/obsidian/7b7e8787-da60-4964-bb92-5d924176696a/#disqus_thread</comments>
       
     </item>
     
@@ -80,13 +106,11 @@
       <category domain="https://ruinshe.github.io/categories/development/">development</category>
       
       
-      <category domain="https://ruinshe.github.io/tags/web/">web</category>
-      
       <category domain="https://ruinshe.github.io/tags/devops/">devops</category>
       
-      <category domain="https://ruinshe.github.io/tags/hexo/">hexo</category>
+      <category domain="https://ruinshe.github.io/tags/blog/">blog</category>
       
-      <category domain="https://ruinshe.github.io/tags/serverless/">serverless</category>
+      <category domain="https://ruinshe.github.io/tags/hexo/">hexo</category>
       
       
       <comments>https://ruinshe.github.io/2020/01/11/obsidian/e7663dcb-10ef-4aaa-96cb-738304e14bfa/#disqus_thread</comments>
@@ -108,8 +132,6 @@
       
       <category domain="https://ruinshe.github.io/categories/development/">development</category>
       
-      
-      <category domain="https://ruinshe.github.io/tags/git/">git</category>
       
       <category domain="https://ruinshe.github.io/tags/ide/">ide</category>
       
@@ -159,7 +181,7 @@
       <category domain="https://ruinshe.github.io/categories/development/">development</category>
       
       
-      <category domain="https://ruinshe.github.io/tags/rsync/">rsync</category>
+      <category domain="https://ruinshe.github.io/tags/devops/">devops</category>
       
       
       <comments>https://ruinshe.github.io/2019/12/18/obsidian/cca8bce5-c791-4f4d-949f-90417eb888a3/#disqus_thread</comments>
@@ -182,11 +204,7 @@
       <category domain="https://ruinshe.github.io/categories/development/">development</category>
       
       
-      <category domain="https://ruinshe.github.io/tags/web/">web</category>
-      
       <category domain="https://ruinshe.github.io/tags/devops/">devops</category>
-      
-      <category domain="https://ruinshe.github.io/tags/certbot/">certbot</category>
       
       
       <comments>https://ruinshe.github.io/2019/04/01/obsidian/b0879869-9bc9-4cf6-8d5d-f9a59fc8e788/#disqus_thread</comments>
@@ -204,7 +222,7 @@ help us more easily to build / test / run the project.&lt;/p&gt;</description>
       
       
       
-      <content:encoded><![CDATA[<p>When using <code>projectile</code> to manage a project folder, we can customize the project’s properties to<br />help us more easily to build / test / run the project.</p><span id="more"></span><p>Assuming we have a folder which contains all files in the project, and we want to quickly build /<br />test the project, we can add a <code>.projectile</code> file at the root of the project folder tree, then add<br />another <code>.dir-locals.el</code> file describing the customized command.</p><figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">((<span class="name">nil</span> . ((<span class="name">projectile-project-name</span> . <span class="string">&quot;Project name described in the status bar&quot;</span>)</span><br><span class="line">         <span class="comment">;; The empty string indicates current folder is the root of the proejct.</span></span><br><span class="line"> (<span class="name">projectile-project-compilation-dir</span> . <span class="string">&quot;&quot;</span>)</span><br><span class="line"> (<span class="name">projectile-enable-caching</span> . <span class="literal">t</span>)</span><br><span class="line"> <span class="comment">;; Note that the prepare.sh is located at the root of the project.</span></span><br><span class="line"> (<span class="name">projectile-project-compilation-cmd</span> . <span class="string">&quot;./prepare.sh &amp;&amp; make build&quot;</span>)</span><br><span class="line"> (<span class="name">projectile-project-test-cmd</span> . <span class="string">&quot;./preare_test.sh &amp;&amp; make test&quot;</span>)</span><br><span class="line"> (<span class="name">projectile-project-run-cmd</span> . <span class="string">&quot;./start_app_engine &amp;&amp; make deploy&quot;</span>)</span><br><span class="line"> <span class="comment">;; Bind the .h file from default C header to C++ header.</span></span><br><span class="line"> (<span class="name">eval</span> . (<span class="name">add-to-list</span> &#x27;auto-mode-alist &#x27;(<span class="string">&quot;\\.h\\&#x27;&quot;</span> . c++-mode))))))</span><br></pre></td></tr></table></figure>]]></content:encoded>
+      <content:encoded><![CDATA[<p>When using <code>projectile</code> to manage a project folder, we can customize the project’s properties to<br />help us more easily to build / test / run the project.</p><span id="more"></span><p>Assuming we have a folder which contains all files in the project, and we want to quickly build /<br />test the project, we can add a <code>.projectile</code> file at the root of the project folder tree, then add<br />another <code>.dir-locals.el</code> file describing the customized command.</p><figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">((<span class="name">nil</span> . ((<span class="name">projectile-project-name</span> . <span class="string">&quot;Project name described in the status bar&quot;</span>)</span><br><span class="line">         <span class="comment">;; The empty string indicates current folder is the root of the proejct.</span></span><br><span class="line"> (<span class="name">projectile-project-compilation-dir</span> . <span class="string">&quot;&quot;</span>)</span><br><span class="line"> (<span class="name">projectile-enable-caching</span> . <span class="literal">t</span>)</span><br><span class="line"> <span class="comment">;; Note that the prepare.sh is located at the root of the project.</span></span><br><span class="line"> (<span class="name">projectile-project-compilation-cmd</span> . <span class="string">&quot;./prepare.sh &amp;&amp; make build&quot;</span>)</span><br><span class="line"> (<span class="name">projectile-project-test-cmd</span> . <span class="string">&quot;./preare_test.sh &amp;&amp; make test&quot;</span>)</span><br><span class="line"> (<span class="name">projectile-project-run-cmd</span> . <span class="string">&quot;./start_app_engine &amp;&amp; make deploy&quot;</span>)</span><br><span class="line"> <span class="comment">;; Bind the .h file from default C header to C++ header.</span></span><br><span class="line"> (<span class="name">eval</span> . (<span class="name">add-to-list</span> &#x27;auto-mode-alist&#x27;(<span class="string">&quot;\\.h\\&#x27;&quot;</span> . c++-mode))))))</span><br></pre></td></tr></table></figure>]]></content:encoded>
       
       
       <category domain="https://ruinshe.github.io/categories/development/">development</category>
@@ -212,7 +230,9 @@ help us more easily to build / test / run the project.&lt;/p&gt;</description>
       
       <category domain="https://ruinshe.github.io/tags/emacs/">emacs</category>
       
-      <category domain="https://ruinshe.github.io/tags/projectile/">projectile</category>
+      <category domain="https://ruinshe.github.io/tags/ide/">ide</category>
+      
+      <category domain="https://ruinshe.github.io/tags/editor/">editor</category>
       
       
       <comments>https://ruinshe.github.io/2018/09/11/obsidian/841f1444-988c-4df9-b863-677cd8822d72/#disqus_thread</comments>
@@ -239,11 +259,11 @@ help us more easily to build / test / run the project.&lt;/p&gt;</description>
       <category domain="https://ruinshe.github.io/categories/development/">development</category>
       
       
+      <category domain="https://ruinshe.github.io/tags/devops/">devops</category>
+      
       <category domain="https://ruinshe.github.io/tags/blog/">blog</category>
       
       <category domain="https://ruinshe.github.io/tags/web/">web</category>
-      
-      <category domain="https://ruinshe.github.io/tags/devops/">devops</category>
       
       <category domain="https://ruinshe.github.io/tags/hexo/">hexo</category>
       
@@ -274,11 +294,11 @@ help us more easily to build / test / run the project.&lt;/p&gt;</description>
       
       <category domain="https://ruinshe.github.io/tags/git/">git</category>
       
+      <category domain="https://ruinshe.github.io/tags/devops/">devops</category>
+      
       <category domain="https://ruinshe.github.io/tags/blog/">blog</category>
       
       <category domain="https://ruinshe.github.io/tags/web/">web</category>
-      
-      <category domain="https://ruinshe.github.io/tags/devops/">devops</category>
       
       
       <comments>https://ruinshe.github.io/2018/06/18/obsidian/9669cce6-923f-4b32-a2b7-72a8c23fdb3e/#disqus_thread</comments>
@@ -505,37 +525,6 @@ help us more easily to build / test / run the project.&lt;/p&gt;</description>
       
       
       <comments>https://ruinshe.github.io/2015/08/07/remove-unused-git-history/#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>MacOS 下用 Homebrew 配置 jekyll</title>
-      <link>https://ruinshe.github.io/2015/06/14/obsidian/d58ac588-efef-4682-9277-ff51d990731d/</link>
-      <guid>https://ruinshe.github.io/2015/06/14/obsidian/d58ac588-efef-4682-9277-ff51d990731d/</guid>
-      <pubDate>Sun, 14 Jun 2015 07:11:00 GMT</pubDate>
-      
-      <description>&lt;p&gt;本文描述一个简单的在 Mac OS 系统中使用 Homebrew 配置 Jekyll 的方式。&lt;/p&gt;</description>
-      
-      
-      
-      <content:encoded><![CDATA[<p>本文描述一个简单的在 Mac OS 系统中使用 Homebrew 配置 Jekyll 的方式。</p><span id="more"></span><p>Jekyll 有两个比较重要的依赖，一个是 <code>Ruby</code> ，一个是 <code>libffi</code> ，一般来说我们可以用 <code>Homebrew</code> 直接搞定它们</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">brew install ruby libffi</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">ruby -v</span></span><br></pre></td></tr></table></figure><p>然后就在安装 <code>jekyll</code> 的时候，指定好 include path 了，注意这里不能用</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">export</span> CPATH=~/homebrew/Cellar/libffi/&lt;ffi-version&gt;/lib/libffi-&lt;ffi-version&gt;/include/</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">gem install jekyll</span></span><br></pre></td></tr></table></figure><p>因为 <code>brew install</code> 会新打开一个 <code>shell</code> 进程，我们可以用</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">CPATH=~/homebrew/Cellar/libffi/&lt;ffi-version&gt;/lib/libffi-&lt;ffi-version&gt;/include/ gem install jekyll</span></span><br></pre></td></tr></table></figure><p>这样可以安装成功</p>]]></content:encoded>
-      
-      
-      <category domain="https://ruinshe.github.io/categories/development/">development</category>
-      
-      
-      <category domain="https://ruinshe.github.io/tags/blog/">blog</category>
-      
-      <category domain="https://ruinshe.github.io/tags/development/">development</category>
-      
-      <category domain="https://ruinshe.github.io/tags/jekyll/">jekyll</category>
-      
-      <category domain="https://ruinshe.github.io/tags/macos/">macos</category>
-      
-      <category domain="https://ruinshe.github.io/tags/homebrew/">homebrew</category>
-      
-      
-      <comments>https://ruinshe.github.io/2015/06/14/obsidian/d58ac588-efef-4682-9277-ff51d990731d/#disqus_thread</comments>
       
     </item>
     
