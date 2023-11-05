@@ -319,7 +319,9 @@
         <category>essay</category>
       </categories>
       <tags>
+        <tag>acm-icpc</tag>
         <tag>csdn</tag>
+        <tag>essay</tag>
       </tags>
   </entry>
   <entry>
@@ -462,7 +464,6 @@
       </categories>
       <tags>
         <tag>acm-icpc</tag>
-        <tag>icpc</tag>
       </tags>
   </entry>
   <entry>
@@ -606,7 +607,6 @@ M834 80h400000v40h-400000z'/></svg></span></span></span><span class="vlist-s">â€
       </categories>
       <tags>
         <tag>acm-icpc</tag>
-        <tag>icpc</tag>
       </tags>
   </entry>
   <entry>
@@ -658,6 +658,7 @@ M834 80h400000v40h-400000z'/></svg></span></span></span><span class="vlist-s">â€
         <category>acm-icpc-solutions</category>
       </categories>
       <tags>
+        <tag>acm-icpc</tag>
         <tag>csdn</tag>
       </tags>
   </entry>
@@ -821,7 +822,9 @@ M834 80h400000v40h-400000z'/></svg></span></span></span><span class="vlist-s">â€
         <category>essay</category>
       </categories>
       <tags>
+        <tag>acm-icpc</tag>
         <tag>csdn</tag>
+        <tag>essay</tag>
       </tags>
   </entry>
   <entry>
@@ -850,7 +853,6 @@ M834 80h400000v40h-400000z'/></svg></span></span></span><span class="vlist-s">â€
       </categories>
       <tags>
         <tag>acm-icpc</tag>
-        <tag>icpc</tag>
         <tag>essay</tag>
       </tags>
   </entry>
@@ -891,6 +893,7 @@ M834 80h400000v40h-400000z'/></svg></span></span></span><span class="vlist-s">â€
         <category>acm-icpc-solutions</category>
       </categories>
       <tags>
+        <tag>acm-icpc</tag>
         <tag>csdn</tag>
       </tags>
   </entry>
@@ -911,6 +914,7 @@ M834 80h400000v40h-400000z'/></svg></span></span></span><span class="vlist-s">â€
         <category>acm-icpc-solutions</category>
       </categories>
       <tags>
+        <tag>acm-icpc</tag>
         <tag>csdn</tag>
       </tags>
   </entry>
@@ -963,7 +967,6 @@ M834 80h400000v40h-400000z'/></svg></span></span></span><span class="vlist-s">â€
       </categories>
       <tags>
         <tag>acm-icpc</tag>
-        <tag>icpc</tag>
       </tags>
   </entry>
   <entry>
@@ -1151,6 +1154,7 @@ another <code>.dir-locals.el</code> file describing the customized command.</p>
         <category>acm-icpc-solutions</category>
       </categories>
       <tags>
+        <tag>acm-icpc</tag>
         <tag>csdn</tag>
       </tags>
   </entry>
@@ -1231,6 +1235,7 @@ another <code>.dir-locals.el</code> file describing the customized command.</p>
       <tags>
         <tag>acm-icpc</tag>
         <tag>csdn</tag>
+        <tag>essay</tag>
       </tags>
   </entry>
   <entry>
@@ -1262,6 +1267,7 @@ another <code>.dir-locals.el</code> file describing the customized command.</p>
         <category>acm-icpc-solutions</category>
       </categories>
       <tags>
+        <tag>acm-icpc</tag>
         <tag>csdn</tag>
       </tags>
   </entry>
@@ -1287,6 +1293,7 @@ another <code>.dir-locals.el</code> file describing the customized command.</p>
         <tag>git</tag>
         <tag>web</tag>
         <tag>devops</tag>
+        <tag>blog</tag>
       </tags>
   </entry>
   <entry>
@@ -1340,6 +1347,7 @@ another <code>.dir-locals.el</code> file describing the customized command.</p>
         <category>acm-icpc-solutions</category>
       </categories>
       <tags>
+        <tag>acm-icpc</tag>
         <tag>csdn</tag>
       </tags>
   </entry>
@@ -1615,7 +1623,6 @@ c-16-25.333-24-45-24-59z'/></svg></span></span></span></span><span class="vlist-
       </categories>
       <tags>
         <tag>acm-icpc</tag>
-        <tag>icpc</tag>
       </tags>
   </entry>
   <entry>
@@ -1643,6 +1650,7 @@ c-16-25.333-24-45-24-59z'/></svg></span></span></span></span><span class="vlist-
         <category>acm-icpc-solutions</category>
       </categories>
       <tags>
+        <tag>acm-icpc</tag>
         <tag>csdn</tag>
       </tags>
   </entry>
@@ -1657,6 +1665,7 @@ c-16-25.333-24-45-24-59z'/></svg></span></span></span></span><span class="vlist-
         <category>acm-icpc-solutions</category>
       </categories>
       <tags>
+        <tag>acm-icpc</tag>
         <tag>csdn</tag>
       </tags>
   </entry>
@@ -1723,6 +1732,7 @@ c-16-25.333-24-45-24-59z'/></svg></span></span></span></span><span class="vlist-
         <category>acm-icpc-solutions</category>
       </categories>
       <tags>
+        <tag>acm-icpc</tag>
         <tag>csdn</tag>
       </tags>
   </entry>
@@ -1803,7 +1813,6 @@ c-16-25.333-24-45-24-59z'/></svg></span></span></span></span><span class="vlist-
       </categories>
       <tags>
         <tag>acm-icpc</tag>
-        <tag>icpc</tag>
       </tags>
   </entry>
   <entry>
@@ -1866,6 +1875,7 @@ a_i = b_j
         <category>acm-icpc-solutions</category>
       </categories>
       <tags>
+        <tag>acm-icpc</tag>
         <tag>csdn</tag>
       </tags>
   </entry>
@@ -1990,6 +2000,7 @@ dp[0][k-c[i][j]-p[i]]+v[i][j]
       <tags>
         <tag>git</tag>
         <tag>ide</tag>
+        <tag>development</tag>
       </tags>
   </entry>
   <entry>
@@ -2010,6 +2021,7 @@ dp[0][k-c[i][j]-p[i]]+v[i][j]
       <tags>
         <tag>tips</tag>
         <tag>web</tag>
+        <tag>development</tag>
       </tags>
   </entry>
   <entry>
@@ -2061,10 +2073,11 @@ dp[0][k-c[i][j]-p[i]]+v[i][j]
         <category>development</category>
       </categories>
       <tags>
+        <tag>blog</tag>
+        <tag>development</tag>
         <tag>jekyll</tag>
         <tag>macos</tag>
         <tag>homebrew</tag>
-        <tag>blog</tag>
       </tags>
   </entry>
   <entry>
@@ -2234,6 +2247,7 @@ dp[0][k-c[i][j]-p[i]]+v[i][j]
       </categories>
       <tags>
         <tag>web</tag>
+        <tag>devops</tag>
         <tag>blog</tag>
         <tag>hexo</tag>
         <tag>docker</tag>
@@ -2256,6 +2270,7 @@ dp[0][k-c[i][j]-p[i]]+v[i][j]
         <category>acm-icpc-solutions</category>
       </categories>
       <tags>
+        <tag>acm-icpc</tag>
         <tag>csdn</tag>
       </tags>
   </entry>
@@ -2335,6 +2350,7 @@ dp[0][k-c[i][j]-p[i]]+v[i][j]
         <category>acm-icpc-solutions</category>
       </categories>
       <tags>
+        <tag>acm-icpc</tag>
         <tag>csdn</tag>
       </tags>
   </entry>
@@ -2363,6 +2379,7 @@ dp[0][k-c[i][j]-p[i]]+v[i][j]
       <tags>
         <tag>acm-icpc</tag>
         <tag>csdn</tag>
+        <tag>essay</tag>
       </tags>
   </entry>
   <entry>
@@ -2446,6 +2463,7 @@ dp[0][k-c[i][j]-p[i]]+v[i][j]
         <category>acm-icpc-solutions</category>
       </categories>
       <tags>
+        <tag>acm-icpc</tag>
         <tag>csdn</tag>
       </tags>
   </entry>
