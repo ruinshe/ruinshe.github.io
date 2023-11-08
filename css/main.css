@@ -2693,7 +2693,7 @@ header.header {
   vertical-align: middle;
 }
 .links-of-author a::before {
-  background: #d582f6;
+  background: #2bff37;
   display: inline-block;
   margin-right: 3px;
   transform: translateY(-2px);
@@ -2745,4 +2745,14 @@ header.header {
 }
 .post-body p {
   text-indent: 2em;
+}
+.footnotes {
+  font-size: small;
+}
+.footnotes > ol.footnotes-list > li.footnote-item > p {
+  margin: 0;
+}
+ol p,
+li p {
+  text-indent: unset !important;
 }
