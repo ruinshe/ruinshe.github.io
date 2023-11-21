@@ -155,7 +155,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">91</span>
+          <span class="site-state-item-count">92</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -215,6 +215,86 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://ruinshe.github.io/2018/08/02/obsidian/e8545467-024b-4b30-8a24-6aeeba33ef10/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Ruins He">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ruins He's house">
+      <meta itemprop="description" content="Ruins He's personal website">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Ruins He's house">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2018/08/02/obsidian/e8545467-024b-4b30-8a24-6aeeba33ef10/" class="post-title-link" itemprop="url">Serve Hexo blog using Docker</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：8月 2日, 2018 20:38:00" itemprop="dateCreated datePublished" datetime="2018-08-02T20:38:00+08:00">8月 2日, 2018</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/development/" itemprop="url" rel="index"><span itemprop="name">development</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>You can simply add a <code>Dockerfile</code> which looks like:</p>
+<figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">FROM</span> node:alpine AS builder</span><br><span class="line"></span><br><span class="line"><span class="keyword">RUN</span><span class="language-bash"> npm config <span class="built_in">set</span> unsafe-perm <span class="literal">true</span> &amp;&amp; npm install -g hexo-cli</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">COPY</span><span class="language-bash"> . /app</span></span><br><span class="line"><span class="keyword">WORKDIR</span><span class="language-bash"> /app</span></span><br><span class="line"><span class="keyword">RUN</span><span class="language-bash"> npm install &amp;&amp; hexo generate</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">FROM</span> httpd:alpine</span><br><span class="line"></span><br><span class="line"><span class="keyword">COPY</span><span class="language-bash"> --from=builder /app/public /usr/local/apache2/htdocs/</span></span><br></pre></td></tr></table></figure>
+<p>Then call <code>docker build -t image:tag .</code> to build your own blog. To run the blog locally, you can simply run command <code>docker run -p &#123;host_port&#125;:80 image:tag</code>.</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -538,92 +618,6 @@
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2016/05/31/obsidian/cd2feb08-60f6-41cc-8725-52aa87e7ea14/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://ruinshe.github.io/2016/04/07/obsidian/77353ef3-4165-402c-9337-38a0166915a5/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="Ruins He">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Ruins He's house">
-      <meta itemprop="description" content="Ruins He's personal website">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Ruins He's house">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2016/04/07/obsidian/77353ef3-4165-402c-9337-38a0166915a5/" class="post-title-link" itemprop="url">一类区间动态规划的优化 - Key Words</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：4月 7日, 2016 14:15:00" itemprop="dateCreated datePublished" datetime="2016-04-07T14:15:00+08:00">4月 7日, 2016</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/acm-icpc-solutions/" itemprop="url" rel="index"><span itemprop="name">acm-icpc-solutions</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>上周末 UESTC 校赛初赛，由于养老群里奇怪的爷爷一上来就开写这题还说挺好玩的，就看了下。</p>
-<p>这是一个看上去是字符串的字符串题（雾</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2016/04/07/obsidian/77353ef3-4165-402c-9337-38a0166915a5/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>

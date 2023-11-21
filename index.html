@@ -155,7 +155,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">91</span>
+          <span class="site-state-item-count">92</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -215,6 +215,97 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://ruinshe.github.io/2023/11/20/obsidian/591491c7-7f7f-445f-94d5-5f47a4de8aa2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Ruins He">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ruins He's house">
+      <meta itemprop="description" content="Ruins He's personal website">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Ruins He's house">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2023/11/20/obsidian/591491c7-7f7f-445f-94d5-5f47a4de8aa2/" class="post-title-link" itemprop="url">Bochs 的实时时钟</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：11月 20日, 2023 21:47:00" itemprop="dateCreated datePublished" datetime="2023-11-20T21:47:00+08:00">11月 20日, 2023</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/development/" itemprop="url" rel="index"><span itemprop="name">development</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>摘抄自 ByteKits 上的文章<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup>，目前已不可用，做个备份（方便大家查阅）。</p>
+<p><code>clock</code> 定义了 Bochs 内的时钟。</p>
+<p><code>sync</code> 定义了如何将 Bochs 内部时间与实时同步的方法。值为’none’时，Bochs 时间依赖于 IPS 值，并且不使用主机时间同步。“减速”方法牺牲性能以保持再现性，同时允许主机时间相关性。“实时”方法牺牲了再现性，以保持性能和主机时间相关性。可以同时启用这两种同步方法。</p>
+<p><code>rtc_sync</code> 选项与实时同步一起启用，RTC 将以实时速度运行。默认情况下，此功能处于禁用状态。</p>
+<p><code>time0</code> 指定虚拟机的开始（引导）时间。使用 <code>time(2)</code> 系统调用返回的时间值或 <code>ctime(3)</code> 系统调用返回的字符串。如果没有设置 <code>time0</code> 值，或者 <code>time0</code> 等于 1（特殊情况），或者 <code>time0</code> 等于“local”，则模拟将在当前本地主机时间开始。如果 <code>time0</code> 等于 2（特殊情况）或 <code>time0</code> 等于’utc’，模拟将在当前 utc 时间开始。</p>
+<p>以下是一个例子：</p>
+<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">Syntax:</span><br><span class="line">  clock: sync=[none|slowdown|realtime|both], time0=[timeValue|local|utc]</span><br><span class="line">Examples:</span><br><span class="line">  clock: sync=none,     time0=local       # Now (localtime)</span><br><span class="line">  clock: sync=slowdown, time0=315529200   # Tue Jan  1 00:00:00 1980</span><br><span class="line">  clock: sync=none,     time0=&quot;Mon Jan  1 00:00:00 1990&quot; # 631148400</span><br><span class="line">  clock: sync=realtime, time0=938581955   # Wed Sep 29 07:12:35 1999</span><br><span class="line">  clock: sync=realtime, time0=&quot;Sat Jan  1 00:00:00 2000&quot; # 946681200</span><br><span class="line">  clock: sync=none,     time0=1           # Now (localtime)</span><br><span class="line">  clock: sync=none,     time0=utc         # Now (utc/gmt)</span><br><span class="line">Default value are sync=none, rtc_sync=0, time0=local</span><br></pre></td></tr></table></figure>
+<hr class="footnotes-sep" />
+<section class="footnotes">
+<ol class="footnotes-list">
+<li id="fn1" class="footnote-item"><p><a target="_blank" rel="noopener" href="http://www.bytekits.com/bochs/bochs-clock.html">http://www.bytekits.com/bochs/bochs-clock.html</a> <a href="#fnref1" class="footnote-backref">↩︎</a></p>
+</li>
+</ol>
+</section>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -542,91 +633,6 @@
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2020/01/11/obsidian/e7663dcb-10ef-4aaa-96cb-738304e14bfa/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://ruinshe.github.io/2020/01/05/obsidian/ccb2651e-665b-4051-a04b-1a123d64e91d/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="Ruins He">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Ruins He's house">
-      <meta itemprop="description" content="Ruins He's personal website">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Ruins He's house">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2020/01/05/obsidian/ccb2651e-665b-4051-a04b-1a123d64e91d/" class="post-title-link" itemprop="url">通过私有 Git 仓库同步 IntelliJ 的配置</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：1月 5日, 2020 22:13:00" itemprop="dateCreated datePublished" datetime="2020-01-05T22:13:00+08:00">1月 5日, 2020</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/development/" itemprop="url" rel="index"><span itemprop="name">development</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>平时在用 IntelliJ 开发 Java 和 Kotlin 项目的时候经常会遇到要在多台电脑上同步自己的 IDE 配置的情况，这里的 IDE 配置不仅仅包括 UI 布局、字体等，还包括快捷键、插件列表、文件关联等。我们可以用自己在 git 服务器上的一个私有 git 仓库来同步我们的配置。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/01/05/obsidian/ccb2651e-665b-4051-a04b-1a123d64e91d/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
