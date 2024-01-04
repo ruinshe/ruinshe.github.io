@@ -2203,6 +2203,35 @@ dp[0][k-c[i][j]-p[i]]+v[i][j]
       </tags>
   </entry>
   <entry>
+    <title>配置 Rabbit MQ 全局的消息过期时间</title>
+    <url>/2024/01/04/obsidian/d5f6f84d-1d35-4221-8b72-9ab0cb4bdbbc/</url>
+    <content><![CDATA[<p>在我们支持第三方系统对接的时候，消息队列往往是一个比较常用的推送解决方案，但是为了防止第三方系统不接收消息，或者保证消息的有效性，我们会考虑为队列添加 TTL 属性，来使得消息自动过期。</p>
+<div class="note warning"><p style="text-decoration: underline;">注意</p>
+<p>不是所有的队列，或者所有的业务都需要配置过期时间，如果这个队列是由我们自己系统做管控，而且要保证它们都被第三方系统消费，这种情况下不能有自动过期策略，或者有其它的诸如死信队列这样的机制。</p>
+</div>
+<span id="more"></span>
+<h2 id="根据规则配置队列的自动过期时间"><a class="markdownIt-Anchor" href="#根据规则配置队列的自动过期时间"></a> 根据规则配置队列的自动过期时间</h2>
+<p>根据官方文档<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup>，我们可以通过 Set-Policy 机制，为不同的队列配置不同的 ttl policy，以下是一个最简单的例子：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">rabbitmqctl set_policy TTL &quot;.*&quot; &#x27;&#123;&quot;message-ttl&quot;:60000&#125;&#x27; --apply-to queues</span><br></pre></td></tr></table></figure>
+<p>以上命令中，我们把所有队列都配置上了自动过期时间为 60 秒。</p>
+<hr class="footnotes-sep" />
+<section class="footnotes">
+<ol class="footnotes-list">
+<li id="fn1" class="footnote-item"><p><a href="https://www.rabbitmq.com/ttl.html#queue-ttl-using-policy">Define Queue TTL for Queues Using a Policy</a> <a href="#fnref1" class="footnote-backref">↩︎</a></p>
+</li>
+</ol>
+</section>
+]]></content>
+      <categories>
+        <category>development</category>
+      </categories>
+      <tags>
+        <tag>devops</tag>
+        <tag>rabbitmq</tag>
+        <tag>amqp</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Codeforces Beta Round #28 B题</title>
     <url>/2010/09/18/obsidian/da478d0e-24a1-47d4-add4-e6b0cb05d41c/</url>
     <content><![CDATA[<p>今天悲剧的第一题没看懂题，好吧，不会做，B 题最简单，放出来。</p>
