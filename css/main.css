@@ -2693,7 +2693,7 @@ header.header {
   vertical-align: middle;
 }
 .links-of-author a::before {
-  background: #94b0ff;
+  background: #a3ffff;
   display: inline-block;
   margin-right: 3px;
   transform: translateY(-2px);
@@ -2742,6 +2742,10 @@ header.header {
 }
 .sub-menu .menu-item {
   display: inline-block;
+}
+.giscus {
+  max-width: unset;
+  box-sizing: border-box;
 }
 .post-body p {
   text-indent: 2em;
