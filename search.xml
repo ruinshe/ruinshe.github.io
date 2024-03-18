@@ -707,29 +707,27 @@ M834 80h400000v40h-400000z'/></svg></span></span></span><span class="vlist-s">�
 </ol>
 <p>配置完毕之后，可以直接 <code>docker compose up -d</code> 开启服务。</p>
 <h3 id="安装自己的-ca-证书"><a class="markdownIt-Anchor" href="#安装自己的-ca-证书"></a> 安装自己的 CA 证书</h3>
-<div class="tabs" id="callouts"><ul class="nav-tabs"><li class="tab active"><a href="#callouts-1">Windows 11</a></li><li class="tab"><a href="#callouts-2">Arch Linux</a></li><li class="tab"><a href="#callouts-3">iPhone</a></li></ul><div class="tab-content"><div class="tab-pane active" id="callouts-1"><p>下载自己的证书，重命名为 <code>crt</code> 格式，打开它之后进行安装，安装的时候选择“将所有的证书都放入下列存储”，并选择“受信任的根证书颁发机构”，就可以安装并信任自己的 CA 证书了。</p></div><div class="tab-pane" id="callouts-2"><p>直接使用 <code>trust</code> <a href="https://wiki.archlinux.org/title/User:Grawity/Adding_a_trusted_CA_certificate">arch-linux-adding-trusted-ca</a>命令安装就可以：</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo trust anchor --store rootCA.crt</span><br></pre></td></tr></table></figure></div><div class="tab-pane" id="callouts-3"><p>首先先把自己的证书发送给自己的手机，可以使用邮件（需要用系统邮箱软件打开），或者直接用 <code>python -m http.server</code> 启动一个临时的 Web 服务器，然后用系统自带的 Safari 打开，安装证书，并在通用-&gt;关于本机-&gt;证书信任设置中，信任自己的 CA 证书。</p></div></div></div>
+<h4 id="windows-11"><a class="markdownIt-Anchor" href="#windows-11"></a> Windows 11</h4>
+<p>下载自己的证书，重命名为 <code>crt</code> 格式，打开它之后进行安装，安装的时候选择“将所有的证书都放入下列存储”，并选择“受信任的根证书颁发机构”，就可以安装并信任自己的 CA 证书了。</p>
+<h4 id="arch-linux"><a class="markdownIt-Anchor" href="#arch-linux"></a> Arch Linux</h4>
+<p>直接使用 <code>trust</code> <a href="https://wiki.archlinux.org/title/User:Grawity/Adding_a_trusted_CA_certificate">arch-linux-adding-trusted-ca</a>命令安装就可以：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo trust anchor --store rootCA.crt</span><br></pre></td></tr></table></figure>
+<h4 id="iphone"><a class="markdownIt-Anchor" href="#iphone"></a> iPhone</h4>
+<p>首先先把自己的证书发送给自己的手机，可以使用邮件（需要用系统邮箱软件打开），或者直接用 <code>python -m http.server</code> 启动一个临时的 Web 服务器，然后用系统自带的 Safari 打开，安装证书，并在通用-&gt;关于本机-&gt;证书信任设置中，信任自己的 CA 证书。</p>
 <h2 id="客户端对接"><a class="markdownIt-Anchor" href="#客户端对接"></a> 客户端对接</h2>
-<div class="tabs" id="callouts"><ul class="nav-tabs"><li class="tab active"><a href="#callouts-1">桌面端</a></li><li class="tab"><a href="#callouts-2">iPhone</a></li></ul><div class="tab-content"><div class="tab-pane active" id="callouts-1"><p>在 Windows 11 和 Arch Linux 中，我选择使用 Fluent Reader<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup>作为我的阅读器，可以做简单的过滤，而且颜值还行。</p>
+<h3 id="桌面端"><a class="markdownIt-Anchor" href="#桌面端"></a> 桌面端</h3>
+<p>在 Windows 11 和 Arch Linux 中，我选择使用 Fluent Reader<sup class="footnote-ref"><a href="#fn2" id="fnref2">[2]</a></sup>作为我的阅读器，可以做简单的过滤，而且颜值还行。</p>
 <p>安装完 Fluent Reader 之后，直接在设置中选择服务，添加 Fever API 服务，端点是自己的服务器地址，加上 <code>/api/fever.php</code> 后缀，比如说 <code>https://192.168.1.123:12382/api/fever.php</code>，用户名密码是自己之前配置的用户名，以及 API 密码（注意不是登录密码）。</p>
-<hr class="footnotes-sep" />
-<section class="footnotes">
-<ol class="footnotes-list">
-<li id="fn1" class="footnote-item"><p><a href="https://github.com/yang991178/fluent-reader/">https://github.com/yang991178/fluent-reader/</a> <a href="#fnref1" class="footnote-backref">↩︎</a></p>
-</li>
-</ol>
-</section></div><div class="tab-pane" id="callouts-2"><p>在 iPhone 上，我暂时使用的是 NetNewsWire 和 Fluent Reader Lite<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup> ，后面可能会考虑其它家的代替品。NetNewsWire 可以在软件中可以直接添加一个 Fresh RSS 账号，使用 <code>/api/greader.php</code> 作为后缀，并且还是用上述的用户名以及 API 密码访问，而 Fluent Reader Lite 的配置和桌面端一致。</p>
-<hr class="footnotes-sep" />
-<section class="footnotes">
-<ol class="footnotes-list">
-<li id="fn1" class="footnote-item"><p><a href="https://github.com/yang991178/fluent-reader-lite">https://github.com/yang991178/fluent-reader-lite</a> <a href="#fnref1" class="footnote-backref">↩︎</a></p>
-</li>
-</ol>
-</section></div></div></div>
+<h3 id="iphone-2"><a class="markdownIt-Anchor" href="#iphone-2"></a> iPhone</h3>
+<p>在 iPhone 上，我暂时使用的是 NetNewsWire 和 Fluent Reader Lite<sup class="footnote-ref"><a href="#fn3" id="fnref3">[3]</a></sup> ，后面可能会考虑其它家的代替品。NetNewsWire 可以在软件中可以直接添加一个 Fresh RSS 账号，使用 <code>/api/greader.php</code> 作为后缀，并且还是用上述的用户名以及 API 密码访问，而 Fluent Reader Lite 的配置和桌面端一致。</p>
 <hr class="footnotes-sep" />
 <section class="footnotes">
 <ol class="footnotes-list">
 <li id="fn1" class="footnote-item"><p><a href="https://github.com/FiloSottile/mkcert">https://github.com/FiloSottile/mkcert</a> <a href="#fnref1" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn2" class="footnote-item"><p><a href="https://github.com/yang991178/fluent-reader/">https://github.com/yang991178/fluent-reader/</a> <a href="#fnref2" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn3" class="footnote-item"><p><a href="https://github.com/yang991178/fluent-reader-lite">https://github.com/yang991178/fluent-reader-lite</a> <a href="#fnref3" class="footnote-backref">↩︎</a></p>
 </li>
 </ol>
 </section>
