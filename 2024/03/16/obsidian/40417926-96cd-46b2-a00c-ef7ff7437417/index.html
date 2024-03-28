@@ -28,7 +28,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://ruinshe.github.io/images/obsidian/rss-workflow.excalidraw.png">
 <meta property="article:published_time" content="2024-03-16T00:34:00.000Z">
-<meta property="article:modified_time" content="2024-03-19T01:50:42.061Z">
+<meta property="article:modified_time" content="2024-03-28T07:11:27.670Z">
 <meta property="article:author" content="Ruins He">
 <meta property="article:tag" content="development">
 <meta property="article:tag" content="rss">
@@ -147,7 +147,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%83%8C%E6%99%AF"><span class="nav-number">1.</span> <span class="nav-text"> 背景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%90%AD%E5%BB%BA-fresh-rss-%E6%9C%8D%E5%8A%A1"><span class="nav-number">2.</span> <span class="nav-text"> 搭建 Fresh RSS 服务</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E8%87%AA%E5%B7%B1%E7%9A%84-ssl-%E8%AF%81%E4%B9%A6"><span class="nav-number">3.</span> <span class="nav-text"> 使用自己的 SSL 证书</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AD%BE%E5%8F%91%E8%87%AA%E5%B7%B1%E7%9A%84-ssl-%E8%AF%81%E4%B9%A6"><span class="nav-number">3.1.</span> <span class="nav-text"> 签发自己的 SSL 证书</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE%E6%9C%8D%E5%8A%A1%E4%BD%BF%E7%94%A8-ssl-%E8%AF%81%E4%B9%A6"><span class="nav-number">3.2.</span> <span class="nav-text"> 配置服务使用 SSL 证书</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85%E8%87%AA%E5%B7%B1%E7%9A%84-ca-%E8%AF%81%E4%B9%A6"><span class="nav-number">3.3.</span> <span class="nav-text"> 安装自己的 CA 证书</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#windows-11"><span class="nav-number">3.3.1.</span> <span class="nav-text"> Windows 11</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#arch-linux"><span class="nav-number">3.3.2.</span> <span class="nav-text"> Arch Linux</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#iphone"><span class="nav-number">3.3.3.</span> <span class="nav-text"> iPhone</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%A2%E6%88%B7%E7%AB%AF%E5%AF%B9%E6%8E%A5"><span class="nav-number">4.</span> <span class="nav-text"> 客户端对接</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A1%8C%E9%9D%A2%E7%AB%AF"><span class="nav-number">4.1.</span> <span class="nav-text"> 桌面端</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#iphone-2"><span class="nav-number">4.2.</span> <span class="nav-text"> iPhone</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%83%8C%E6%99%AF"><span class="nav-number">1.</span> <span class="nav-text"> 背景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%90%AD%E5%BB%BA-fresh-rss-%E6%9C%8D%E5%8A%A1"><span class="nav-number">2.</span> <span class="nav-text"> 搭建 Fresh RSS 服务</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E8%87%AA%E5%B7%B1%E7%9A%84-ssl-%E8%AF%81%E4%B9%A6"><span class="nav-number">3.</span> <span class="nav-text"> 使用自己的 SSL 证书</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AD%BE%E5%8F%91%E8%87%AA%E5%B7%B1%E7%9A%84-ssl-%E8%AF%81%E4%B9%A6"><span class="nav-number">3.1.</span> <span class="nav-text"> 签发自己的 SSL 证书</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE%E6%9C%8D%E5%8A%A1%E4%BD%BF%E7%94%A8-ssl-%E8%AF%81%E4%B9%A6"><span class="nav-number">3.2.</span> <span class="nav-text"> 配置服务使用 SSL 证书</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85%E8%87%AA%E5%B7%B1%E7%9A%84-ca-%E8%AF%81%E4%B9%A6"><span class="nav-number">3.3.</span> <span class="nav-text"> 安装自己的 CA 证书</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%A2%E6%88%B7%E7%AB%AF%E5%AF%B9%E6%8E%A5"><span class="nav-number">4.</span> <span class="nav-text"> 客户端对接</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -315,27 +315,29 @@
 </ol>
 <p>配置完毕之后，可以直接 <code>docker compose up -d</code> 开启服务。</p>
 <h3 id="安装自己的-ca-证书"><a class="markdownIt-Anchor" href="#安装自己的-ca-证书"></a> 安装自己的 CA 证书</h3>
-<h4 id="windows-11"><a class="markdownIt-Anchor" href="#windows-11"></a> Windows 11</h4>
-<p>下载自己的证书，重命名为 <code>crt</code> 格式，打开它之后进行安装，安装的时候选择“将所有的证书都放入下列存储”，并选择“受信任的根证书颁发机构”，就可以安装并信任自己的 CA 证书了。</p>
-<h4 id="arch-linux"><a class="markdownIt-Anchor" href="#arch-linux"></a> Arch Linux</h4>
-<p>直接使用 <code>trust</code> <a target="_blank" rel="noopener" href="https://wiki.archlinux.org/title/User:Grawity/Adding_a_trusted_CA_certificate">arch-linux-adding-trusted-ca</a>命令安装就可以：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo trust anchor --store rootCA.crt</span><br></pre></td></tr></table></figure>
-<h4 id="iphone"><a class="markdownIt-Anchor" href="#iphone"></a> iPhone</h4>
-<p>首先先把自己的证书发送给自己的手机，可以使用邮件（需要用系统邮箱软件打开），或者直接用 <code>python -m http.server</code> 启动一个临时的 Web 服务器，然后用系统自带的 Safari 打开，安装证书，并在通用-&gt;关于本机-&gt;证书信任设置中，信任自己的 CA 证书。</p>
+<div class="tabs" id="callouts-1"><ul class="nav-tabs"><li class="tab active"><a href="#callouts-1-1">Windows</a></li><li class="tab"><a href="#callouts-1-2">Arch</a></li><li class="tab"><a href="#callouts-1-3">iPhone</a></li></ul><div class="tab-content"><div class="tab-pane active" id="callouts-1-1"><p>下载自己的证书，重命名为 <code>crt</code> 格式，打开它之后进行安装，安装的时候选择“将所有的证书都放入下列存储”，并选择“受信任的根证书颁发机构”，就可以安装并信任自己的 CA 证书了。</p></div><div class="tab-pane" id="callouts-1-2"><p>直接使用 <code>trust</code> <a target="_blank" rel="noopener" href="https://wiki.archlinux.org/title/User:Grawity/Adding_a_trusted_CA_certificate">arch-linux-adding-trusted-ca</a>命令安装就可以：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo trust anchor --store rootCA.crt</span><br></pre></td></tr></table></figure></div><div class="tab-pane" id="callouts-1-3"><p>首先先把自己的证书发送给自己的手机，可以使用邮件（需要用系统邮箱软件打开），或者直接用 <code>python -m http.server</code> 启动一个临时的 Web 服务器，然后用系统自带的 Safari 打开，安装证书，并在通用-&gt;关于本机-&gt;证书信任设置中，信任自己的 CA 证书。</p></div></div></div>
 <h2 id="客户端对接"><a class="markdownIt-Anchor" href="#客户端对接"></a> 客户端对接</h2>
-<h3 id="桌面端"><a class="markdownIt-Anchor" href="#桌面端"></a> 桌面端</h3>
-<p>在 Windows 11 和 Arch Linux 中，我选择使用 Fluent Reader<sup class="footnote-ref"><a href="#fn2" id="fnref2">[2]</a></sup>作为我的阅读器，可以做简单的过滤，而且颜值还行。</p>
+<div class="tabs" id="callouts-2"><ul class="nav-tabs"><li class="tab active"><a href="#callouts-2-1">桌面端</a></li><li class="tab"><a href="#callouts-2-2">iPhone</a></li></ul><div class="tab-content"><div class="tab-pane active" id="callouts-2-1"><p>在 Windows 11 和 Arch Linux 中，我选择使用 Fluent Reader<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup>作为我的阅读器，可以做简单的过滤，而且颜值还行。</p>
 <p>安装完 Fluent Reader 之后，直接在设置中选择服务，添加 Fever API 服务，端点是自己的服务器地址，加上 <code>/api/fever.php</code> 后缀，比如说 <code>https://192.168.1.123:12382/api/fever.php</code>，用户名密码是自己之前配置的用户名，以及 API 密码（注意不是登录密码）。</p>
-<h3 id="iphone-2"><a class="markdownIt-Anchor" href="#iphone-2"></a> iPhone</h3>
-<p>在 iPhone 上，我暂时使用的是 NetNewsWire 和 Fluent Reader Lite<sup class="footnote-ref"><a href="#fn3" id="fnref3">[3]</a></sup> ，后面可能会考虑其它家的代替品。NetNewsWire 可以在软件中可以直接添加一个 Fresh RSS 账号，使用 <code>/api/greader.php</code> 作为后缀，并且还是用上述的用户名以及 API 密码访问，而 Fluent Reader Lite 的配置和桌面端一致。</p>
+<hr class="footnotes-sep" />
+<section class="footnotes">
+<ol class="footnotes-list">
+<li id="fn1" class="footnote-item"><p><a target="_blank" rel="noopener" href="https://github.com/yang991178/fluent-reader/">https://github.com/yang991178/fluent-reader/</a> <a href="#fnref1" class="footnote-backref">↩︎</a></p>
+</li>
+</ol>
+</section></div><div class="tab-pane" id="callouts-2-2"><p>在 iPhone 上，我暂时使用的是 NetNewsWire 和 Fluent Reader Lite<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup> ，后面可能会考虑其它家的代替品。NetNewsWire 可以在软件中可以直接添加一个 Fresh RSS 账号，使用 <code>/api/greader.php</code> 作为后缀，并且还是用上述的用户名以及 API 密码访问，而 Fluent Reader Lite 的配置和桌面端一致。</p>
+<hr class="footnotes-sep" />
+<section class="footnotes">
+<ol class="footnotes-list">
+<li id="fn1" class="footnote-item"><p><a target="_blank" rel="noopener" href="https://github.com/yang991178/fluent-reader-lite">https://github.com/yang991178/fluent-reader-lite</a> <a href="#fnref1" class="footnote-backref">↩︎</a></p>
+</li>
+</ol>
+</section></div></div></div>
 <hr class="footnotes-sep" />
 <section class="footnotes">
 <ol class="footnotes-list">
 <li id="fn1" class="footnote-item"><p><a target="_blank" rel="noopener" href="https://github.com/FiloSottile/mkcert">https://github.com/FiloSottile/mkcert</a> <a href="#fnref1" class="footnote-backref">↩︎</a></p>
-</li>
-<li id="fn2" class="footnote-item"><p><a target="_blank" rel="noopener" href="https://github.com/yang991178/fluent-reader/">https://github.com/yang991178/fluent-reader/</a> <a href="#fnref2" class="footnote-backref">↩︎</a></p>
-</li>
-<li id="fn3" class="footnote-item"><p><a target="_blank" rel="noopener" href="https://github.com/yang991178/fluent-reader-lite">https://github.com/yang991178/fluent-reader-lite</a> <a href="#fnref3" class="footnote-backref">↩︎</a></p>
 </li>
 </ol>
 </section>
