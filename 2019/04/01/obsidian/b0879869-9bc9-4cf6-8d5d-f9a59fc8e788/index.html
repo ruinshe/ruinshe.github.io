@@ -27,7 +27,7 @@
 <meta property="og:description" content="When you are considering support basic HTTPS blog, you may choose Certbot to perform a self-assign certificate, according to the Offical Tutorial[1].">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2019-04-01T07:19:00.000Z">
-<meta property="article:modified_time" content="2024-03-28T07:50:16.777Z">
+<meta property="article:modified_time" content="2024-04-02T23:47:53.621Z">
 <meta property="article:author" content="Ruins He">
 <meta property="article:tag" content="devops">
 <meta name="twitter:card" content="summary">
@@ -52,7 +52,7 @@
 
 
 
-
+<link rel="stylesheet" type="text/css" href="/css/injector/main.css" /><link rel="preload" as="style" href="/css/injector/light.css" /><link rel="preload" as="style" href="/css/injector/dark.css" />
   <noscript>
     <link rel="stylesheet" href="/css/noscript.css">
   </noscript>
@@ -281,10 +281,10 @@
     <div class="post-body" itemprop="articleBody"><p>When you are considering support basic HTTPS blog, you may choose Certbot to perform a self-assign certificate, according to the Offical Tutorial<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup>.</p>
 <span id="more"></span>
 <p>After installed the tool, you may check whether <code>/etc/cron.d/certbot</code> was configured, if not, you may add it by performing command line:</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo certbot renew --dry-run</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo certbot renew --dry-run</span><br></pre></td></tr></tbody></table></figure>
 <p>Or add it manually into the corresponding file:</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">SHELL=/bin/sh</span><br><span class="line">PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin</span><br><span class="line"></span><br><span class="line">0 */12 * * * root test -x /usr/bin/certbot -a \! -d /run/systemd/system &amp;&amp; perl -e &#x27;sleep int(rand(43200))&#x27; &amp;&amp; certbot -q renew</span><br></pre></td></tr></table></figure>
-<hr class="footnotes-sep" />
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">SHELL=/bin/sh</span><br><span class="line">PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin</span><br><span class="line"></span><br><span class="line">0 */12 * * * root test -x /usr/bin/certbot -a \! -d /run/systemd/system &amp;&amp; perl -e 'sleep int(rand(43200))' &amp;&amp; certbot -q renew</span><br></pre></td></tr></tbody></table></figure>
+<hr class="footnotes-sep">
 <section class="footnotes">
 <ol class="footnotes-list">
 <li id="fn1" class="footnote-item"><p><a target="_blank" rel="noopener" href="https://certbot.eff.org/instructions?ws=nginx&amp;os=ubuntufocal">https://certbot.eff.org/instructions?ws=nginx&amp;os=ubuntufocal</a> <a href="#fnref1" class="footnote-backref">↩︎</a></p>
@@ -419,6 +419,26 @@ document.addEventListener('page:loaded', () => {
     }));
 });
 </script>
-
+<div class="moon-menu">
+  <div class="moon-menu-items">
+    
+    <div id="moon-menu-item-back2bottom" class="moon-menu-item">
+      <i class='fas fa-chevron-down'></i>    </div>
+    
+    <div id="moon-menu-item-back2top" class="moon-menu-item">
+      <i class='fas fa-chevron-up'></i>    </div>
+    
+  </div>
+  <div class="moon-menu-button">
+    <svg class="moon-menu-bg">
+      <circle class="moon-menu-cricle" cx="50%" cy="50%" r="44%"></circle>
+      <circle class="moon-menu-border" cx="50%" cy="50%" r="48%"></circle>
+    </svg>
+    <div class="moon-menu-content">
+      <div class="moon-menu-icon"><i class='fas fa-ellipsis-v'></i></div>
+      <div class="moon-menu-text"></div>
+    </div>
+  </div>
+</div><script src="/js/injector.js"></script>
 </body>
 </html>

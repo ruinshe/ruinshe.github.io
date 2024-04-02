@@ -27,7 +27,7 @@
 <meta property="og:description" content="某天做日常工作的时候遇到了一个小问题，有一个在远程的开发机（不是任何的部署环境）中的测试不能通过。因为相同的测试在本地是可以通过的，于是我打算将远程的代码目录直接通过 rsync 同步到本地来二次检查测试是不是由于不同内核导致，还是由于测试顺序随机导致的。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2019-12-18T07:10:00.000Z">
-<meta property="article:modified_time" content="2024-03-28T07:50:16.774Z">
+<meta property="article:modified_time" content="2024-04-02T23:47:53.617Z">
 <meta property="article:author" content="Ruins He">
 <meta property="article:tag" content="devops">
 <meta name="twitter:card" content="summary">
@@ -52,7 +52,7 @@
 
 
 
-
+<link rel="stylesheet" type="text/css" href="/css/injector/main.css" /><link rel="preload" as="style" href="/css/injector/light.css" /><link rel="preload" as="style" href="/css/injector/dark.css" />
   <noscript>
     <link rel="stylesheet" href="/css/noscript.css">
   </noscript>
@@ -281,7 +281,7 @@
     <div class="post-body" itemprop="articleBody"><p>某天做日常工作的时候遇到了一个小问题，有一个在远程的开发机（不是任何的部署环境）中的测试不能通过。因为相同的测试在本地是可以通过的，于是我打算将远程的代码目录直接通过 <code>rsync</code> 同步到本地来二次检查测试是不是由于不同内核导致，还是由于测试顺序随机导致的。</p>
 <span id="more"></span>
 <p>我在自己的 <code>group</code> 目录，执行了如下的指令将远程的某个 <code>project</code> 子目录同步到当前的 <code>project</code> 目录下：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rsync --delete -e ssh -v -r remote-development-server:~/group/project/ .</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rsync --delete -e ssh -v -r remote-development-server:~/group/project/ .</span><br></pre></td></tr></tbody></table></figure>
 <p>当同步完了之后，<code>ls</code> 发现所有的文件被同步到当前目录而不是 <code>project</code> 下，而且由于加了 <code>--delete</code> 参数，我的当前分组目录下的子目录全部被删除了。这次命令之后，我从记忆中罗列了一下在本地开发环境的损失：</p>
 <ul>
 <li>若干的本地配置被删除，包括比较敏感的不会被 check in 到 repostiory 的文件，和若干 <code>.dir-locals.el</code> 配置。</li>
@@ -290,9 +290,9 @@
 </ul>
 <p>由于本地目前没有做过于小时间范围内的数据自动同步，基本上就只能重新 clone 远程的代码了。这件事发生之后，我就每次执行命令行的时候都有点疑神疑鬼的，感觉需要一个 NFS 才能拯救我。为了防止命令行误操作导致不可预知的数据损失，我还特地看了一下 <code>rsync</code> 命令的几个比较有特点的同步表现：</p>
 <p>第一种是，如果源位置的目录是没有以 <code>/</code> 结尾的，那么包括源目录本身会被复制到目标目录，比如</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">rsync -v -r source . # copy to ./source</span><br><span class="line">rsync -v -r source destination # copy to destination/source</span><br></pre></td></tr></table></figure>
-<p>另外一种是，源位置的目录后加了<code>/</code>，表示这个目录内部的文件复制到目标目录（不包括源目录自己），比如</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">rsync -v -r source/ . # copy to ./</span><br><span class="line">rsync -v -r source/ destination # copy to destination/</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">rsync -v -r source . # copy to ./source</span><br><span class="line">rsync -v -r source destination # copy to destination/source</span><br></pre></td></tr></tbody></table></figure>
+<p>另外一种是，源位置的目录后加了 <code>/</code>，表示这个目录内部的文件复制到目标目录（不包括源目录自己），比如</p>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">rsync -v -r source/ . # copy to ./</span><br><span class="line">rsync -v -r source/ destination # copy to destination/</span><br></pre></td></tr></tbody></table></figure>
 <p>这种情况下，相当于把 <code>source</code> 目录中的文件复制到目标目录，如果你加了 <code>--delete</code> 参数，那么目标目录下的无关文件和目录都会被删除。</p>
 <p>至于为什么我会删除掉了的工作目录，是因为我用了 <code>oh-my-zsh</code>，虽然我的配置会自动删除目录之后的 <code>/</code>，但是我一时脑抽，看自动删除就加回去了，就导致了这个悲剧发生。关于平时用 <code>rsync</code> 的注意点，建议少加 <code>--delete</code> 参数，或者用之前先 <code>--dry-run</code> 一下，另外，用第一种做法可以防止类似的事发生，如果你想要将 <code>source/folder</code> 备份到 <code>destination/folder</code>，建议在 <code>destination</code> 目录执行第一种命令。</p>
 
@@ -423,6 +423,26 @@ document.addEventListener('page:loaded', () => {
     }));
 });
 </script>
-
+<div class="moon-menu">
+  <div class="moon-menu-items">
+    
+    <div id="moon-menu-item-back2bottom" class="moon-menu-item">
+      <i class='fas fa-chevron-down'></i>    </div>
+    
+    <div id="moon-menu-item-back2top" class="moon-menu-item">
+      <i class='fas fa-chevron-up'></i>    </div>
+    
+  </div>
+  <div class="moon-menu-button">
+    <svg class="moon-menu-bg">
+      <circle class="moon-menu-cricle" cx="50%" cy="50%" r="44%"></circle>
+      <circle class="moon-menu-border" cx="50%" cy="50%" r="48%"></circle>
+    </svg>
+    <div class="moon-menu-content">
+      <div class="moon-menu-icon"><i class='fas fa-ellipsis-v'></i></div>
+      <div class="moon-menu-text"></div>
+    </div>
+  </div>
+</div><script src="/js/injector.js"></script>
 </body>
 </html>

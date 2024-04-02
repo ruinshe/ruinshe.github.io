@@ -27,7 +27,7 @@
 <meta property="og:description" content="我们平时在选择博客的解决方案的时候，可能会考虑用一个自己云端的 VM 来作为自己博客的一个载体，在这台 VM 上安装自己要的 http 服务，比如 apache 或者 nginx，然后把自己的静态资源放在 VM 中 host 给世界各地的人。 但是这样有一个不好的地方，如果你完全不用这台 VM 呢？比如说，你只是要部署一个自己的博客，但是平时除了写博文并部署以外你不会去关心自己的那台 VM，这样的">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-01-11T07:08:00.000Z">
-<meta property="article:modified_time" content="2024-03-28T07:50:16.780Z">
+<meta property="article:modified_time" content="2024-04-02T23:47:53.624Z">
 <meta property="article:author" content="Ruins He">
 <meta property="article:tag" content="devops">
 <meta property="article:tag" content="blog">
@@ -54,7 +54,7 @@
 
 
 
-
+<link rel="stylesheet" type="text/css" href="/css/injector/main.css" /><link rel="preload" as="style" href="/css/injector/light.css" /><link rel="preload" as="style" href="/css/injector/dark.css" />
   <noscript>
     <link rel="stylesheet" href="/css/noscript.css">
   </noscript>
@@ -297,7 +297,7 @@
 <ul>
 <li>由云服务解决方案提供商提供的一个用于路由和负载均衡的服务，对于大量的路由网关的情况下可以考虑在 DNS 上绑定多个 Load Balancer 来做在 DNS 上的负载均衡和区域拆分。</li>
 <li>一般的云服务提供商会为 Load Balancer 提供一个外网 IP，在自己的 DNS 提供商上为自己的域名绑定上这个 IP 就可以实现通过这个 Load Balancer 的入口来访问自己的网站了。</li>
-<li>如果说，我们要部署的不是一个静态博客，而是一个有后台的博客，我们也可以通过 Load Balancer 的路由配置，将比如<code>/api/**/*</code>这样的 URL 地址绑定到我们的后台上去， 这个后台可以是一个 VM，也可以是 FaaS 中的一个函数，也可以是自己维护的 Kubernetes 集群的一个 Ingress，等等。</li>
+<li>如果说，我们要部署的不是一个静态博客，而是一个有后台的博客，我们也可以通过 Load Balancer 的路由配置，将比如 <code>/api/**/*</code> 这样的 URL 地址绑定到我们的后台上去， 这个后台可以是一个 VM，也可以是 FaaS 中的一个函数，也可以是自己维护的 Kubernetes 集群的一个 Ingress，等等。</li>
 <li>通过简单的路由配置，我们可以避免自己维护 Kubernetes 或者类似的集群，也可以不用自己起一个 nginx 做路由和负载均衡了。</li>
 </ul>
 </li>
@@ -308,13 +308,13 @@
 </ol>
 <ul>
 <li>在创建 bucket 之前，我们需要先通过 <a target="_blank" rel="noopener" href="https://search.google.com/search-console/welcome">https://search.google.com/search-console/welcome</a> 这个网站来对自己的根域名进行自己的域名认证。</li>
-<li>通过域名认证之后，在<code>Storage -&gt; Browser</code>页面可以创建一个自己该网站的 bucket，其中名字是自己的博客的域名（子域名），数据模式按普通的来，权限选择默认的<code>Fine-grained</code>。</li>
-<li>创建完了 bucket 之后，在 bucket 的详情页中选择<code>Permissions</code>，添加一个用户是<code>allUsers</code>权限是<code>Storage Object Viewer</code>的记录，表示这些静态资源将可以被任何人看到。</li>
-<li>如果你的网站有特别的 404 页面和主页，可以通过在 bucket 列表面中，选择行末的三个点，选择<code>Edit website configuration</code>，配置默认页面和 404 页面的文件路径。</li>
+<li>通过域名认证之后，在 <code>Storage -&gt; Browser</code> 页面可以创建一个自己该网站的 bucket，其中名字是自己的博客的域名（子域名），数据模式按普通的来，权限选择默认的 <code>Fine-grained</code>。</li>
+<li>创建完了 bucket 之后，在 bucket 的详情页中选择 <code>Permissions</code>，添加一个用户是 <code>allUsers</code> 权限是 <code>Storage Object Viewer</code> 的记录，表示这些静态资源将可以被任何人看到。</li>
+<li>如果你的网站有特别的 404 页面和主页，可以通过在 bucket 列表面中，选择行末的三个点，选择 <code>Edit website configuration</code>，配置默认页面和 404 页面的文件路径。</li>
 </ul>
 <ol start="2">
-<li>绑定之后，可以通过<code>gsutil</code>或者<code>hexo-deployer-gcs</code>来把自己的静态网站从目录<code>public</code>复制到云端的 bucket 中。</li>
-<li>接下来，在 Google Cloud 的控制台中，打开<code>Network Services -&gt; Load Balancer</code>，创建自己的 Load Balancer，生成的静态 IP 可以通过<code>VPC Network -&gt; External IP addresses</code>来做绑定。</li>
+<li>绑定之后，可以通过 <code>gsutil</code> 或者 <code>hexo-deployer-gcs</code> 来把自己的静态网站从目录 <code>public</code> 复制到云端的 bucket 中。</li>
+<li>接下来，在 Google Cloud 的控制台中，打开 <code>Network Services -&gt; Load Balancer</code>，创建自己的 Load Balancer，生成的静态 IP 可以通过 <code>VPC Network -&gt; External IP addresses</code> 来做绑定。</li>
 <li>最后，把自己的网站 IP 绑定到自己的域名中，通过 DNS A record 绑定即可。</li>
 </ol>
 
@@ -447,6 +447,26 @@ document.addEventListener('page:loaded', () => {
     }));
 });
 </script>
-
+<div class="moon-menu">
+  <div class="moon-menu-items">
+    
+    <div id="moon-menu-item-back2bottom" class="moon-menu-item">
+      <i class='fas fa-chevron-down'></i>    </div>
+    
+    <div id="moon-menu-item-back2top" class="moon-menu-item">
+      <i class='fas fa-chevron-up'></i>    </div>
+    
+  </div>
+  <div class="moon-menu-button">
+    <svg class="moon-menu-bg">
+      <circle class="moon-menu-cricle" cx="50%" cy="50%" r="44%"></circle>
+      <circle class="moon-menu-border" cx="50%" cy="50%" r="48%"></circle>
+    </svg>
+    <div class="moon-menu-content">
+      <div class="moon-menu-icon"><i class='fas fa-ellipsis-v'></i></div>
+      <div class="moon-menu-text"></div>
+    </div>
+  </div>
+</div><script src="/js/injector.js"></script>
 </body>
 </html>

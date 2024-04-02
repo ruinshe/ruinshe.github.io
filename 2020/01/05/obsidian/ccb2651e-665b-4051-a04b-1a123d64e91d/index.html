@@ -27,7 +27,7 @@
 <meta property="og:description" content="平时在用 IntelliJ 开发 Java 和 Kotlin 项目的时候经常会遇到要在多台电脑上同步自己的 IDE 配置的情况，这里的 IDE 配置不仅仅包括 UI 布局、字体等，还包括快捷键、插件列表、文件关联等。我们可以用自己在 git 服务器上的一个私有 git 仓库来同步我们的配置。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-01-05T14:13:00.000Z">
-<meta property="article:modified_time" content="2024-03-28T07:50:16.837Z">
+<meta property="article:modified_time" content="2024-04-02T23:47:53.687Z">
 <meta property="article:author" content="Ruins He">
 <meta property="article:tag" content="development">
 <meta property="article:tag" content="ide">
@@ -53,7 +53,7 @@
 
 
 
-
+<link rel="stylesheet" type="text/css" href="/css/injector/main.css" /><link rel="preload" as="style" href="/css/injector/light.css" /><link rel="preload" as="style" href="/css/injector/dark.css" />
   <noscript>
     <link rel="stylesheet" href="/css/noscript.css">
   </noscript>
@@ -282,9 +282,9 @@
     <div class="post-body" itemprop="articleBody"><p>平时在用 IntelliJ 开发 Java 和 Kotlin 项目的时候经常会遇到要在多台电脑上同步自己的 IDE 配置的情况，这里的 IDE 配置不仅仅包括 UI 布局、字体等，还包括快捷键、插件列表、文件关联等。我们可以用自己在 git 服务器上的一个私有 git 仓库来同步我们的配置。</p>
 <span id="more"></span>
 <p>平时可以用的比较稳定的是 github，如果在国内需要考虑速度的话，可以用 gitee。如果用非 github 的平台的话，要注意用 PEM 格式的私钥，当然可以统一用 PEM 格式的私钥来专门做同步配置的事：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sh-keygen -m PEM -C &quot;&lt;user-mail&gt;&quot; -f github-intellij-sync</span><br></pre></td></tr></table></figure>
-<p>生成私钥之后在<code>.ssh/config</code>中添加平台的私钥，然后通过<code>File -&gt; Settings Repository</code>就可以同步配置到云端了。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Host github.com</span><br><span class="line">    IdentityFile ~/.ssh/github-intellij-sync</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sh-keygen -m PEM -C "&lt;user-mail&gt;" -f github-intellij-sync</span><br></pre></td></tr></tbody></table></figure>
+<p>生成私钥之后在<code>.ssh/config</code> 中添加平台的私钥，然后通过 <code>File -&gt; Settings Repository</code> 就可以同步配置到云端了。</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Host github.com</span><br><span class="line">    IdentityFile ~/.ssh/github-intellij-sync</span><br></pre></td></tr></tbody></table></figure>
 
     </div>
 
@@ -414,6 +414,26 @@ document.addEventListener('page:loaded', () => {
     }));
 });
 </script>
-
+<div class="moon-menu">
+  <div class="moon-menu-items">
+    
+    <div id="moon-menu-item-back2bottom" class="moon-menu-item">
+      <i class='fas fa-chevron-down'></i>    </div>
+    
+    <div id="moon-menu-item-back2top" class="moon-menu-item">
+      <i class='fas fa-chevron-up'></i>    </div>
+    
+  </div>
+  <div class="moon-menu-button">
+    <svg class="moon-menu-bg">
+      <circle class="moon-menu-cricle" cx="50%" cy="50%" r="44%"></circle>
+      <circle class="moon-menu-border" cx="50%" cy="50%" r="48%"></circle>
+    </svg>
+    <div class="moon-menu-content">
+      <div class="moon-menu-icon"><i class='fas fa-ellipsis-v'></i></div>
+      <div class="moon-menu-text"></div>
+    </div>
+  </div>
+</div><script src="/js/injector.js"></script>
 </body>
 </html>

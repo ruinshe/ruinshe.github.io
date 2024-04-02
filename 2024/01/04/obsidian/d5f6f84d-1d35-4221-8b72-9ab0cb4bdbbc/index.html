@@ -27,7 +27,7 @@
 <meta property="og:description" content="在我们支持第三方系统对接的时候，消息队列往往是一个比较常用的推送解决方案，但是为了防止第三方系统不接收消息，或者保证消息的有效性，我们会考虑为队列添加 TTL 属性，来使得消息自动过期。 注意 不是所有的队列，或者所有的业务都需要配置过期时间，如果这个队列是由我们自己系统做管控，而且要保证它们都被第三方系统消费，这种情况下不能有自动过期策略，或者有其它的诸如死信队列这样的机制。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-01-04T00:45:00.000Z">
-<meta property="article:modified_time" content="2024-03-28T07:50:16.774Z">
+<meta property="article:modified_time" content="2024-04-02T23:47:53.617Z">
 <meta property="article:author" content="Ruins He">
 <meta property="article:tag" content="devops">
 <meta property="article:tag" content="rabbitmq">
@@ -54,7 +54,7 @@
 
 
 
-
+<link rel="stylesheet" type="text/css" href="/css/injector/main.css" /><link rel="preload" as="style" href="/css/injector/light.css" /><link rel="preload" as="style" href="/css/injector/dark.css" />
   <noscript>
     <link rel="stylesheet" href="/css/noscript.css">
   </noscript>
@@ -287,10 +287,10 @@
 </div>
 <span id="more"></span>
 <h2 id="根据规则配置队列的自动过期时间"><a class="markdownIt-Anchor" href="#根据规则配置队列的自动过期时间"></a> 根据规则配置队列的自动过期时间</h2>
-<p>根据官方文档<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup>，我们可以通过 Set-Policy 机制，为不同的队列配置不同的 ttl policy，以下是一个最简单的例子：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rabbitmqctl set_policy TTL &quot;.*&quot; &#x27;&#123;&quot;message-ttl&quot;:60000&#125;&#x27; --apply-to queues</span><br></pre></td></tr></table></figure>
+<p>根据官方文档 <sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup>，我们可以通过 Set-Policy 机制，为不同的队列配置不同的 ttl policy，以下是一个最简单的例子：</p>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rabbitmqctl set_policy TTL ".*" '{"message-ttl":60000}' --apply-to queues</span><br></pre></td></tr></tbody></table></figure>
 <p>以上命令中，我们把所有队列都配置上了自动过期时间为 60 秒。</p>
-<hr class="footnotes-sep" />
+<hr class="footnotes-sep">
 <section class="footnotes">
 <ol class="footnotes-list">
 <li id="fn1" class="footnote-item"><p><a target="_blank" rel="noopener" href="https://www.rabbitmq.com/ttl.html#queue-ttl-using-policy">Define Queue TTL for Queues Using a Policy</a> <a href="#fnref1" class="footnote-backref">↩︎</a></p>
@@ -427,6 +427,26 @@ document.addEventListener('page:loaded', () => {
     }));
 });
 </script>
-
+<div class="moon-menu">
+  <div class="moon-menu-items">
+    
+    <div id="moon-menu-item-back2bottom" class="moon-menu-item">
+      <i class='fas fa-chevron-down'></i>    </div>
+    
+    <div id="moon-menu-item-back2top" class="moon-menu-item">
+      <i class='fas fa-chevron-up'></i>    </div>
+    
+  </div>
+  <div class="moon-menu-button">
+    <svg class="moon-menu-bg">
+      <circle class="moon-menu-cricle" cx="50%" cy="50%" r="44%"></circle>
+      <circle class="moon-menu-border" cx="50%" cy="50%" r="48%"></circle>
+    </svg>
+    <div class="moon-menu-content">
+      <div class="moon-menu-icon"><i class='fas fa-ellipsis-v'></i></div>
+      <div class="moon-menu-text"></div>
+    </div>
+  </div>
+</div><script src="/js/injector.js"></script>
 </body>
 </html>

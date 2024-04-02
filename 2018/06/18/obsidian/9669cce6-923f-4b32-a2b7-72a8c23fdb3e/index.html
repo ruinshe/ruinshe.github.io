@@ -27,7 +27,7 @@
 <meta property="og:description" content="Caution This post will give a short instruction to serve your own static website (i.e. a website only contains static assets).">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2018-06-18T06:39:00.000Z">
-<meta property="article:modified_time" content="2024-03-28T07:50:16.787Z">
+<meta property="article:modified_time" content="2024-04-02T23:47:53.631Z">
 <meta property="article:author" content="Ruins He">
 <meta property="article:tag" content="git">
 <meta property="article:tag" content="devops">
@@ -55,7 +55,7 @@
 
 
 
-
+<link rel="stylesheet" type="text/css" href="/css/injector/main.css" /><link rel="preload" as="style" href="/css/injector/light.css" /><link rel="preload" as="style" href="/css/injector/dark.css" />
   <noscript>
     <link rel="stylesheet" href="/css/noscript.css">
   </noscript>
@@ -290,7 +290,7 @@
 <p>First of all, assume you have a local revision of the website, containing basic HTML files, images, JavaScript files, CSS style-sheets, etc, and the website is maintained by a private git repository.</p>
 <h2 id="the-post-receive-hook"><a class="markdownIt-Anchor" href="#the-post-receive-hook"></a> The post receive hook</h2>
 <p>Before deploying your local revision of the website, you need to add a <code>post-receive</code> hook in the server side to let the website well-served by the server web engine. For example, assume you use <code>nginx</code> to serve the remote website, and it’s served in the server side folder <code>/var/www/my_blog</code>, what you need to do is, checkout the website files into the folder without the git repository information (i.e. <code>.git</code> folder). This can be done by the script:</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">!/bin/sh</span></span><br><span class="line">rm -rf /var/www/my_blog/*</span><br><span class="line">git --work-tree=/var/www/my_blog --git-dir=/srv/git/my_blog.git checkout -f</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">!/bin/sh</span></span><br><span class="line">rm -rf /var/www/my_blog/*</span><br><span class="line">git --work-tree=/var/www/my_blog --git-dir=/srv/git/my_blog.git checkout -f</span><br></pre></td></tr></tbody></table></figure>
 <h2 id="deploy-the-website-by-git-push"><a class="markdownIt-Anchor" href="#deploy-the-website-by-git-push"></a> Deploy the website by git push</h2>
 <p>Finally, we can change your local revision of the website, then <code>git commit &amp;&amp; git push</code> the changes. After the change pushed successfully, the updated version will be copied to the right folder in the server side (e.g. the <code>/var/www/my_blog/</code> mentioned below).</p>
 
@@ -424,6 +424,26 @@ document.addEventListener('page:loaded', () => {
     }));
 });
 </script>
-
+<div class="moon-menu">
+  <div class="moon-menu-items">
+    
+    <div id="moon-menu-item-back2bottom" class="moon-menu-item">
+      <i class='fas fa-chevron-down'></i>    </div>
+    
+    <div id="moon-menu-item-back2top" class="moon-menu-item">
+      <i class='fas fa-chevron-up'></i>    </div>
+    
+  </div>
+  <div class="moon-menu-button">
+    <svg class="moon-menu-bg">
+      <circle class="moon-menu-cricle" cx="50%" cy="50%" r="44%"></circle>
+      <circle class="moon-menu-border" cx="50%" cy="50%" r="48%"></circle>
+    </svg>
+    <div class="moon-menu-content">
+      <div class="moon-menu-icon"><i class='fas fa-ellipsis-v'></i></div>
+      <div class="moon-menu-text"></div>
+    </div>
+  </div>
+</div><script src="/js/injector.js"></script>
 </body>
 </html>

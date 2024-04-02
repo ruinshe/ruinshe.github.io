@@ -27,7 +27,7 @@
 <meta property="og:description" content="如果经常使用 WSL2 的时候不关闭虚拟机直接关机，会出现 Git 仓库文件损坏的情况，以下摘抄一个简单的解决方案：">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-11-28T16:00:00.000Z">
-<meta property="article:modified_time" content="2023-11-02T01:05:13.957Z">
+<meta property="article:modified_time" content="2024-04-02T09:53:51.405Z">
 <meta property="article:author" content="Ruins He">
 <meta property="article:tag" content="git">
 <meta name="twitter:card" content="summary">
@@ -52,7 +52,7 @@
 
 
 
-
+<link rel="stylesheet" type="text/css" href="/css/injector/main.css" /><link rel="preload" as="style" href="/css/injector/light.css" /><link rel="preload" as="style" href="/css/injector/dark.css" />
   <noscript>
     <link rel="stylesheet" href="/css/noscript.css">
   </noscript>
@@ -281,11 +281,11 @@
     <div class="post-body" itemprop="articleBody"><p>如果经常使用 WSL2 的时候不关闭虚拟机直接关机，会出现 Git 仓库文件损坏的情况，以下摘抄一个简单的解决方案：</p>
 <span id="more"></span>
 <p>一般索引损坏的表现是发现有一些索引文件是空的，然后 Git 命令找不到相关的引用，比如说如下的情况：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ git status</span><br><span class="line">error: object file .git/objects/82/3ab829ac51fdba3d0b219fdc7370480f193cdc is empty</span><br><span class="line">error: object file .git/objects/82/3ab829ac51fdba3d0b219fdc7370480f193cdc is empty</span><br><span class="line">fatal: loose object 823ab829ac51fdba3d0b219fdc7370480f193cdc (stored in .git/objects/82/3ab829ac51fdba3d0b219fdc7370480f193cdc) is corrupt</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ git status</span><br><span class="line">error: object file .git/objects/82/3ab829ac51fdba3d0b219fdc7370480f193cdc is empty</span><br><span class="line">error: object file .git/objects/82/3ab829ac51fdba3d0b219fdc7370480f193cdc is empty</span><br><span class="line">fatal: loose object 823ab829ac51fdba3d0b219fdc7370480f193cdc (stored in .git/objects/82/3ab829ac51fdba3d0b219fdc7370480f193cdc) is corrupt</span><br></pre></td></tr></tbody></table></figure>
 <p>如果说只是单纯的 Git 索引损坏，可以直接将这些文件删除，然后重新从云端拉取最新的索引：</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ find .git/objects/ -<span class="built_in">type</span> f -empty | xargs <span class="built_in">rm</span></span><br><span class="line">$ git fetch -p</span><br><span class="line">$ git fsck --full</span><br></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ find .git/objects/ -<span class="built_in">type</span> f -empty | xargs <span class="built_in">rm</span></span><br><span class="line">$ git fetch -p</span><br><span class="line">$ git fsck --full</span><br></pre></td></tr></tbody></table></figure>
 <p>如果在接取索引的时候遇到类似如下的错误，可以手动删除对应的文件，然后重新运行 <code>git fetch</code></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">error: refs/remotes/origin/HEAD: invalid sha1 pointer 0000000000000000000000000000000000000000</span><br><span class="line">error: refs/remotes/origin/master: invalid sha1 pointer 0000000000000000000000000000000000000000</span><br><span class="line">error: bad ref for .git/logs/refs/remotes/origin/HEAD</span><br><span class="line">error: bad ref for .git/logs/refs/remotes/origin/master</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">error: refs/remotes/origin/HEAD: invalid sha1 pointer 0000000000000000000000000000000000000000</span><br><span class="line">error: refs/remotes/origin/master: invalid sha1 pointer 0000000000000000000000000000000000000000</span><br><span class="line">error: bad ref for .git/logs/refs/remotes/origin/HEAD</span><br><span class="line">error: bad ref for .git/logs/refs/remotes/origin/master</span><br></pre></td></tr></tbody></table></figure>
 
     </div>
 
@@ -414,6 +414,26 @@ document.addEventListener('page:loaded', () => {
     }));
 });
 </script>
-
+<div class="moon-menu">
+  <div class="moon-menu-items">
+    
+    <div id="moon-menu-item-back2bottom" class="moon-menu-item">
+      <i class='fas fa-chevron-down'></i>    </div>
+    
+    <div id="moon-menu-item-back2top" class="moon-menu-item">
+      <i class='fas fa-chevron-up'></i>    </div>
+    
+  </div>
+  <div class="moon-menu-button">
+    <svg class="moon-menu-bg">
+      <circle class="moon-menu-cricle" cx="50%" cy="50%" r="44%"></circle>
+      <circle class="moon-menu-border" cx="50%" cy="50%" r="48%"></circle>
+    </svg>
+    <div class="moon-menu-content">
+      <div class="moon-menu-icon"><i class='fas fa-ellipsis-v'></i></div>
+      <div class="moon-menu-text"></div>
+    </div>
+  </div>
+</div><script src="/js/injector.js"></script>
 </body>
 </html>

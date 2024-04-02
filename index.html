@@ -49,7 +49,7 @@
 
 
 
-
+<link rel="stylesheet" type="text/css" href="/css/injector/main.css" /><link rel="preload" as="style" href="/css/injector/light.css" /><link rel="preload" as="style" href="/css/injector/dark.css" />
   <noscript>
     <link rel="stylesheet" href="/css/noscript.css">
   </noscript>
@@ -441,14 +441,14 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>摘抄自 ByteKits 上的文章<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup>，目前已不可用，做个备份（方便大家查阅）。</p>
+          <p>摘抄自 ByteKits 上的文章 <sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup>，目前已不可用，做个备份（方便大家查阅）。</p>
 <p><code>clock</code> 定义了 Bochs 内的时钟。</p>
-<p><code>sync</code> 定义了如何将 Bochs 内部时间与实时同步的方法。值为’none’时，Bochs 时间依赖于 IPS 值，并且不使用主机时间同步。“减速”方法牺牲性能以保持再现性，同时允许主机时间相关性。“实时”方法牺牲了再现性，以保持性能和主机时间相关性。可以同时启用这两种同步方法。</p>
+<p><code>sync</code> 定义了如何将 Bochs 内部时间与实时同步的方法。值为’none’时，Bochs 时间依赖于 IPS 值，并且不使用主机时间同步。“减速” 方法牺牲性能以保持再现性，同时允许主机时间相关性。“实时” 方法牺牲了再现性，以保持性能和主机时间相关性。可以同时启用这两种同步方法。</p>
 <p><code>rtc_sync</code> 选项与实时同步一起启用，RTC 将以实时速度运行。默认情况下，此功能处于禁用状态。</p>
-<p><code>time0</code> 指定虚拟机的开始（引导）时间。使用 <code>time(2)</code> 系统调用返回的时间值或 <code>ctime(3)</code> 系统调用返回的字符串。如果没有设置 <code>time0</code> 值，或者 <code>time0</code> 等于 1（特殊情况），或者 <code>time0</code> 等于“local”，则模拟将在当前本地主机时间开始。如果 <code>time0</code> 等于 2（特殊情况）或 <code>time0</code> 等于’utc’，模拟将在当前 utc 时间开始。</p>
+<p><code>time0</code> 指定虚拟机的开始（引导）时间。使用 <code>time(2)</code> 系统调用返回的时间值或 <code>ctime(3)</code> 系统调用返回的字符串。如果没有设置 <code>time0</code> 值，或者 <code>time0</code> 等于 1（特殊情况），或者 <code>time0</code> 等于 “local”，则模拟将在当前本地主机时间开始。如果 <code>time0</code> 等于 2（特殊情况）或 <code>time0</code> 等于’utc’，模拟将在当前 utc 时间开始。</p>
 <p>以下是一个例子：</p>
-<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">Syntax:</span><br><span class="line">  clock: sync=[none|slowdown|realtime|both], time0=[timeValue|local|utc]</span><br><span class="line">Examples:</span><br><span class="line">  clock: sync=none,     time0=local       # Now (localtime)</span><br><span class="line">  clock: sync=slowdown, time0=315529200   # Tue Jan  1 00:00:00 1980</span><br><span class="line">  clock: sync=none,     time0=&quot;Mon Jan  1 00:00:00 1990&quot; # 631148400</span><br><span class="line">  clock: sync=realtime, time0=938581955   # Wed Sep 29 07:12:35 1999</span><br><span class="line">  clock: sync=realtime, time0=&quot;Sat Jan  1 00:00:00 2000&quot; # 946681200</span><br><span class="line">  clock: sync=none,     time0=1           # Now (localtime)</span><br><span class="line">  clock: sync=none,     time0=utc         # Now (utc/gmt)</span><br><span class="line">Default value are sync=none, rtc_sync=0, time0=local</span><br></pre></td></tr></table></figure>
-<hr class="footnotes-sep" />
+<figure class="highlight console"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">Syntax:</span><br><span class="line">  clock: sync=[none|slowdown|realtime|both], time0=[timeValue|local|utc]</span><br><span class="line">Examples:</span><br><span class="line">  clock: sync=none,     time0=local       # Now (localtime)</span><br><span class="line">  clock: sync=slowdown, time0=315529200   # Tue Jan  1 00:00:00 1980</span><br><span class="line">  clock: sync=none,     time0="Mon Jan  1 00:00:00 1990" # 631148400</span><br><span class="line">  clock: sync=realtime, time0=938581955   # Wed Sep 29 07:12:35 1999</span><br><span class="line">  clock: sync=realtime, time0="Sat Jan  1 00:00:00 2000" # 946681200</span><br><span class="line">  clock: sync=none,     time0=1           # Now (localtime)</span><br><span class="line">  clock: sync=none,     time0=utc         # Now (utc/gmt)</span><br><span class="line">Default value are sync=none, rtc_sync=0, time0=local</span><br></pre></td></tr></tbody></table></figure>
+<hr class="footnotes-sep">
 <section class="footnotes">
 <ol class="footnotes-list">
 <li id="fn1" class="footnote-item"><p><a target="_blank" rel="noopener" href="http://www.bytekits.com/bochs/bochs-clock.html">http://www.bytekits.com/bochs/bochs-clock.html</a> <a href="#fnref1" class="footnote-backref">↩︎</a></p>
@@ -620,12 +620,12 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>在使用 WSL2 的时候，我们有的时候会因为不断增减文件，导致对应的虚拟磁盘的文件大小远超过预期，并且需要进行清理，我们可以通过 <code>diskpart</code> 打开虚拟磁盘管理工具，然后通过如下命令进行操作<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup>：</p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">select</span> vdisk file=<span class="string">&quot;D:\Arch\ext4.vhdx&quot;</span></span><br><span class="line">compact vdisk</span><br></pre></td></tr></table></figure>
+          <p>在使用 WSL2 的时候，我们有的时候会因为不断增减文件，导致对应的虚拟磁盘的文件大小远超过预期，并且需要进行清理，我们可以通过 <code>diskpart</code> 打开虚拟磁盘管理工具，然后通过如下命令进行操作 <sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup>：</p>
+<figure class="highlight powershell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">select</span> vdisk file=<span class="string">"D:\Arch\ext4.vhdx"</span></span><br><span class="line">compact vdisk</span><br></pre></td></tr></tbody></table></figure>
 <div class="note warning"><p style="text-decoration: underline;">关于文件路径</p>
 <p><code>diskpart</code> 工具选择磁盘的时候，需要绝对路径。</p>
 </div>
-<hr class="footnotes-sep" />
+<hr class="footnotes-sep">
 <section class="footnotes">
 <ol class="footnotes-list">
 <li id="fn1" class="footnote-item"><p><a target="_blank" rel="noopener" href="https://stephenreescarter.net/how-to-shrink-a-wsl2-virtual-disk/">https://stephenreescarter.net/how-to-shrink-a-wsl2-virtual-disk/</a> <a href="#fnref1" class="footnote-backref">↩︎</a></p>
@@ -741,6 +741,26 @@ document.addEventListener('page:loaded', () => {
     }));
 });
 </script>
-
+<div class="moon-menu">
+  <div class="moon-menu-items">
+    
+    <div id="moon-menu-item-back2bottom" class="moon-menu-item">
+      <i class='fas fa-chevron-down'></i>    </div>
+    
+    <div id="moon-menu-item-back2top" class="moon-menu-item">
+      <i class='fas fa-chevron-up'></i>    </div>
+    
+  </div>
+  <div class="moon-menu-button">
+    <svg class="moon-menu-bg">
+      <circle class="moon-menu-cricle" cx="50%" cy="50%" r="44%"></circle>
+      <circle class="moon-menu-border" cx="50%" cy="50%" r="48%"></circle>
+    </svg>
+    <div class="moon-menu-content">
+      <div class="moon-menu-icon"><i class='fas fa-ellipsis-v'></i></div>
+      <div class="moon-menu-text"></div>
+    </div>
+  </div>
+</div><script src="/js/injector.js"></script>
 </body>
 </html>

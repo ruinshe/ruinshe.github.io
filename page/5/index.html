@@ -49,7 +49,7 @@
 
 
 
-
+<link rel="stylesheet" type="text/css" href="/css/injector/main.css" /><link rel="preload" as="style" href="/css/injector/light.css" /><link rel="preload" as="style" href="/css/injector/dark.css" />
   <noscript>
     <link rel="stylesheet" href="/css/noscript.css">
   </noscript>
@@ -446,9 +446,9 @@
     
     <div class="post-body" itemprop="articleBody">
           <p>这几个晚上在倒腾 CDOJ 的 git repository，在家试着 <code>git clone</code> 了一把，第一感觉是</p>
-<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">坑爹啊，这是什么鬼，为什么会有100多MB的history。</span><br></pre></td></tr></table></figure>
-<p>国内的情况你们懂的，花了 10 来分钟才把 repo 下下来，想了下原因，大致上是：昀大爷年轻的时候把 <code>MathJax</code>和 <code>Font</code> 之类的前端 module 给 push 上去了，还不时地移了几次位置，更新了几次版本，就这样把几百 MB 的东西加到历史里去了。。。</p>
-<p>那么问题来了，怎么要才能把这些“没有必要存在”的文件从 git history 里面给干掉呢？这里推荐一个相对简单的办法（更简单的办法是用 <code>bfg</code> ，然而家里的网络直接装都装不上，我放弃了）。</p>
+<figure class="highlight text"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">坑爹啊，这是什么鬼，为什么会有100多MB的history。</span><br></pre></td></tr></tbody></table></figure>
+<p>国内的情况你们懂的，花了 10 来分钟才把 repo 下下来，想了下原因，大致上是：昀大爷年轻的时候把 <code>MathJax</code> 和 <code>Font</code> 之类的前端 module 给 push 上去了，还不时地移了几次位置，更新了几次版本，就这样把几百 MB 的东西加到历史里去了。。。</p>
+<p>那么问题来了，怎么要才能把这些 “没有必要存在” 的文件从 git history 里面给干掉呢？这里推荐一个相对简单的办法（更简单的办法是用 <code>bfg</code> ，然而家里的网络直接装都装不上，我放弃了）。</p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2015/08/07/remove-unused-git-history/#more" rel="contents">
@@ -736,6 +736,26 @@ document.addEventListener('page:loaded', () => {
     }));
 });
 </script>
-
+<div class="moon-menu">
+  <div class="moon-menu-items">
+    
+    <div id="moon-menu-item-back2bottom" class="moon-menu-item">
+      <i class='fas fa-chevron-down'></i>    </div>
+    
+    <div id="moon-menu-item-back2top" class="moon-menu-item">
+      <i class='fas fa-chevron-up'></i>    </div>
+    
+  </div>
+  <div class="moon-menu-button">
+    <svg class="moon-menu-bg">
+      <circle class="moon-menu-cricle" cx="50%" cy="50%" r="44%"></circle>
+      <circle class="moon-menu-border" cx="50%" cy="50%" r="48%"></circle>
+    </svg>
+    <div class="moon-menu-content">
+      <div class="moon-menu-icon"><i class='fas fa-ellipsis-v'></i></div>
+      <div class="moon-menu-text"></div>
+    </div>
+  </div>
+</div><script src="/js/injector.js"></script>
 </body>
 </html>

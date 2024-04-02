@@ -19,15 +19,15 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"ruinshe.github.io","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.19.2","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="这题要转换一下思维来做，从第一行开始，枚举同一行相邻的两个格子，如果不是同一类型(即不同时为水或者同时为陆地)，就判定这条边是合法的。 对于剩余的边，从第二行开始，判断每个格子上方的边是否符合处于两种类型格子之间即可，这样就可以不重复地把全部的边都检查完，由于边缘的边都不算，也让我们很方便的不需要考虑太多的边界条件。">
+    <meta name="description" content="这题要转换一下思维来做，从第一行开始，枚举同一行相邻的两个格子，如果不是同一类型 (即不同时为水或者同时为陆地)，就判定这条边是合法的。 对于剩余的边，从第二行开始，判断每个格子上方的边是否符合处于两种类型格子之间即可，这样就可以不重复地把全部的边都检查完，由于边缘的边都不算，也让我们很方便的不需要考虑太多的边界条件。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="SRM477 DIV2 500">
 <meta property="og:url" content="https://ruinshe.github.io/2010/07/29/obsidian/de1d9334-f9a8-4ace-a289-9c76a5b40b92/index.html">
 <meta property="og:site_name" content="Ruins He&#39;s house">
-<meta property="og:description" content="这题要转换一下思维来做，从第一行开始，枚举同一行相邻的两个格子，如果不是同一类型(即不同时为水或者同时为陆地)，就判定这条边是合法的。 对于剩余的边，从第二行开始，判断每个格子上方的边是否符合处于两种类型格子之间即可，这样就可以不重复地把全部的边都检查完，由于边缘的边都不算，也让我们很方便的不需要考虑太多的边界条件。">
+<meta property="og:description" content="这题要转换一下思维来做，从第一行开始，枚举同一行相邻的两个格子，如果不是同一类型 (即不同时为水或者同时为陆地)，就判定这条边是合法的。 对于剩余的边，从第二行开始，判断每个格子上方的边是否符合处于两种类型格子之间即可，这样就可以不重复地把全部的边都检查完，由于边缘的边都不算，也让我们很方便的不需要考虑太多的边界条件。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2010-07-29T10:44:00.000Z">
-<meta property="article:modified_time" content="2024-03-28T07:50:16.680Z">
+<meta property="article:modified_time" content="2024-04-02T23:47:53.537Z">
 <meta property="article:author" content="Ruins He">
 <meta property="article:tag" content="csdn">
 <meta property="article:tag" content="acm-icpc">
@@ -53,7 +53,7 @@
 
 
 
-
+<link rel="stylesheet" type="text/css" href="/css/injector/main.css" /><link rel="preload" as="style" href="/css/injector/light.css" /><link rel="preload" as="style" href="/css/injector/dark.css" />
   <noscript>
     <link rel="stylesheet" href="/css/noscript.css">
   </noscript>
@@ -279,10 +279,10 @@
     
     
     
-    <div class="post-body" itemprop="articleBody"><p>这题要转换一下思维来做，从第一行开始，枚举同一行相邻的两个格子，如果不是同一类型(即不同时为水或者同时为陆地)，就判定这条边是合法的。</p>
+    <div class="post-body" itemprop="articleBody"><p>这题要转换一下思维来做，从第一行开始，枚举同一行相邻的两个格子，如果不是同一类型 (即不同时为水或者同时为陆地)，就判定这条边是合法的。</p>
 <p>对于剩余的边，从第二行开始，判断每个格子上方的边是否符合处于两种类型格子之间即可，这样就可以不重复地把全部的边都检查完，由于边缘的边都不算，也让我们很方便的不需要考虑太多的边界条件。</p>
 <span id="more"></span>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">beachLength</span><span class="params">(vector&lt;string&gt; v)</span> </span>&#123;</span><br><span class="line">  <span class="type">int</span> n = v.<span class="built_in">size</span>();</span><br><span class="line">  <span class="type">int</span> len[<span class="number">100</span>];</span><br><span class="line">  <span class="type">int</span> ret = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">    len[i] = v[i].<span class="built_in">length</span>();</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">0</span>; j &lt; len[i]; j++) &#123;</span><br><span class="line">      <span class="keyword">if</span> ((j != <span class="number">0</span>) &amp;&amp; (v[i][j] != v[i][j - <span class="number">1</span>])) ret++;</span><br><span class="line">      <span class="keyword">if</span> (i == <span class="number">0</span>) <span class="keyword">continue</span>;</span><br><span class="line">      <span class="keyword">if</span> (i % <span class="number">2</span> == <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">if</span> (((j - <span class="number">1</span> &gt;= <span class="number">0</span>) &amp;&amp; (j - <span class="number">1</span> &lt; len[i - <span class="number">1</span>])) &amp;&amp;</span><br><span class="line">            (v[i][j] != v[i - <span class="number">1</span>][j - <span class="number">1</span>]))</span><br><span class="line">          ret++;</span><br><span class="line">        <span class="keyword">if</span> (((j &gt;= <span class="number">0</span>) &amp;&amp; (j &lt; len[i - <span class="number">1</span>])) &amp;&amp; (v[i][j] != v[i - <span class="number">1</span>][j])) ret++;</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (((j &gt;= <span class="number">0</span>) &amp;&amp; (j &lt; len[i - <span class="number">1</span>])) &amp;&amp; (v[i][j] != v[i - <span class="number">1</span>][j])) ret++;</span><br><span class="line">        <span class="keyword">if</span> (((j + <span class="number">1</span> &gt;= <span class="number">0</span>) &amp;&amp; (j + <span class="number">1</span> &lt; len[i - <span class="number">1</span>])) &amp;&amp;</span><br><span class="line">            (v[i][j] != v[i - <span class="number">1</span>][j + <span class="number">1</span>]))</span><br><span class="line">          ret++;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> ret;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">beachLength</span><span class="params">(vector&lt;string&gt; v)</span> </span>{</span><br><span class="line">  <span class="type">int</span> n = v.<span class="built_in">size</span>();</span><br><span class="line">  <span class="type">int</span> len[<span class="number">100</span>];</span><br><span class="line">  <span class="type">int</span> ret = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i++) {</span><br><span class="line">    len[i] = v[i].<span class="built_in">length</span>();</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">0</span>; j &lt; len[i]; j++) {</span><br><span class="line">      <span class="keyword">if</span> ((j != <span class="number">0</span>) &amp;&amp; (v[i][j] != v[i][j - <span class="number">1</span>])) ret++;</span><br><span class="line">      <span class="keyword">if</span> (i == <span class="number">0</span>) <span class="keyword">continue</span>;</span><br><span class="line">      <span class="keyword">if</span> (i % <span class="number">2</span> == <span class="number">0</span>) {</span><br><span class="line">        <span class="keyword">if</span> (((j - <span class="number">1</span> &gt;= <span class="number">0</span>) &amp;&amp; (j - <span class="number">1</span> &lt; len[i - <span class="number">1</span>])) &amp;&amp;</span><br><span class="line">            (v[i][j] != v[i - <span class="number">1</span>][j - <span class="number">1</span>]))</span><br><span class="line">          ret++;</span><br><span class="line">        <span class="keyword">if</span> (((j &gt;= <span class="number">0</span>) &amp;&amp; (j &lt; len[i - <span class="number">1</span>])) &amp;&amp; (v[i][j] != v[i - <span class="number">1</span>][j])) ret++;</span><br><span class="line">      } <span class="keyword">else</span> {</span><br><span class="line">        <span class="keyword">if</span> (((j &gt;= <span class="number">0</span>) &amp;&amp; (j &lt; len[i - <span class="number">1</span>])) &amp;&amp; (v[i][j] != v[i - <span class="number">1</span>][j])) ret++;</span><br><span class="line">        <span class="keyword">if</span> (((j + <span class="number">1</span> &gt;= <span class="number">0</span>) &amp;&amp; (j + <span class="number">1</span> &lt; len[i - <span class="number">1</span>])) &amp;&amp;</span><br><span class="line">            (v[i][j] != v[i - <span class="number">1</span>][j + <span class="number">1</span>]))</span><br><span class="line">          ret++;</span><br><span class="line">      }</span><br><span class="line">    }</span><br><span class="line">  }</span><br><span class="line">  <span class="keyword">return</span> ret;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
 
     </div>
 
@@ -412,6 +412,26 @@ document.addEventListener('page:loaded', () => {
     }));
 });
 </script>
-
+<div class="moon-menu">
+  <div class="moon-menu-items">
+    
+    <div id="moon-menu-item-back2bottom" class="moon-menu-item">
+      <i class='fas fa-chevron-down'></i>    </div>
+    
+    <div id="moon-menu-item-back2top" class="moon-menu-item">
+      <i class='fas fa-chevron-up'></i>    </div>
+    
+  </div>
+  <div class="moon-menu-button">
+    <svg class="moon-menu-bg">
+      <circle class="moon-menu-cricle" cx="50%" cy="50%" r="44%"></circle>
+      <circle class="moon-menu-border" cx="50%" cy="50%" r="48%"></circle>
+    </svg>
+    <div class="moon-menu-content">
+      <div class="moon-menu-icon"><i class='fas fa-ellipsis-v'></i></div>
+      <div class="moon-menu-text"></div>
+    </div>
+  </div>
+</div><script src="/js/injector.js"></script>
 </body>
 </html>

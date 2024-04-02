@@ -19,12 +19,12 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"ruinshe.github.io","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.19.2","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="这几个晚上在倒腾 CDOJ 的 git repository，在家试着 git clone 了一把，第一感觉是 1坑爹啊，这是什么鬼，为什么会有100多MB的history。 国内的情况你们懂的，花了 10 来分钟才把 repo 下下来，想了下原因，大致上是：昀大爷年轻的时候把 MathJax和 Font 之类的前端 module 给 push 上去了，还不时地移了几次位置，更新了几次版本，就这样">
+    <meta name="description" content="这几个晚上在倒腾 CDOJ 的 git repository，在家试着 git clone 了一把，第一感觉是 1坑爹啊，这是什么鬼，为什么会有100多MB的history。 国内的情况你们懂的，花了 10 来分钟才把 repo 下下来，想了下原因，大致上是：昀大爷年轻的时候把 MathJax 和 Font 之类的前端 module 给 push 上去了，还不时地移了几次位置，更新了几次版本，就这">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Git - 删除无用的文件历史记录">
 <meta property="og:url" content="https://ruinshe.github.io/2015/08/07/remove-unused-git-history/index.html">
 <meta property="og:site_name" content="Ruins He&#39;s house">
-<meta property="og:description" content="这几个晚上在倒腾 CDOJ 的 git repository，在家试着 git clone 了一把，第一感觉是 1坑爹啊，这是什么鬼，为什么会有100多MB的history。 国内的情况你们懂的，花了 10 来分钟才把 repo 下下来，想了下原因，大致上是：昀大爷年轻的时候把 MathJax和 Font 之类的前端 module 给 push 上去了，还不时地移了几次位置，更新了几次版本，就这样">
+<meta property="og:description" content="这几个晚上在倒腾 CDOJ 的 git repository，在家试着 git clone 了一把，第一感觉是 1坑爹啊，这是什么鬼，为什么会有100多MB的history。 国内的情况你们懂的，花了 10 来分钟才把 repo 下下来，想了下原因，大致上是：昀大爷年轻的时候把 MathJax 和 Font 之类的前端 module 给 push 上去了，还不时地移了几次位置，更新了几次版本，就这">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2015-08-06T16:00:00.000Z">
 <meta property="article:modified_time" content="2023-11-02T01:05:51.714Z">
@@ -52,7 +52,7 @@
 
 
 
-
+<link rel="stylesheet" type="text/css" href="/css/injector/main.css" /><link rel="preload" as="style" href="/css/injector/light.css" /><link rel="preload" as="style" href="/css/injector/dark.css" />
   <noscript>
     <link rel="stylesheet" href="/css/noscript.css">
   </noscript>
@@ -280,21 +280,21 @@
     
     
     <div class="post-body" itemprop="articleBody"><p>这几个晚上在倒腾 CDOJ 的 git repository，在家试着 <code>git clone</code> 了一把，第一感觉是</p>
-<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">坑爹啊，这是什么鬼，为什么会有100多MB的history。</span><br></pre></td></tr></table></figure>
-<p>国内的情况你们懂的，花了 10 来分钟才把 repo 下下来，想了下原因，大致上是：昀大爷年轻的时候把 <code>MathJax</code>和 <code>Font</code> 之类的前端 module 给 push 上去了，还不时地移了几次位置，更新了几次版本，就这样把几百 MB 的东西加到历史里去了。。。</p>
-<p>那么问题来了，怎么要才能把这些“没有必要存在”的文件从 git history 里面给干掉呢？这里推荐一个相对简单的办法（更简单的办法是用 <code>bfg</code> ，然而家里的网络直接装都装不上，我放弃了）。</p>
+<figure class="highlight text"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">坑爹啊，这是什么鬼，为什么会有100多MB的history。</span><br></pre></td></tr></tbody></table></figure>
+<p>国内的情况你们懂的，花了 10 来分钟才把 repo 下下来，想了下原因，大致上是：昀大爷年轻的时候把 <code>MathJax</code> 和 <code>Font</code> 之类的前端 module 给 push 上去了，还不时地移了几次位置，更新了几次版本，就这样把几百 MB 的东西加到历史里去了。。。</p>
+<p>那么问题来了，怎么要才能把这些 “没有必要存在” 的文件从 git history 里面给干掉呢？这里推荐一个相对简单的办法（更简单的办法是用 <code>bfg</code> ，然而家里的网络直接装都装不上，我放弃了）。</p>
 <span id="more"></span>
 <h3 id="想起来你要删的文件是什么"><a class="markdownIt-Anchor" href="#想起来你要删的文件是什么"></a> 想起来你要删的文件是什么</h3>
 <p>在这里我们用 <code>MathJax.zip</code> 做例子。</p>
 <h3 id="用-git-filter-branch-去看下有多少-commits-和你选择的文件相关"><a class="markdownIt-Anchor" href="#用-git-filter-branch-去看下有多少-commits-和你选择的文件相关"></a> 用 git filter-branch 去看下有多少 commits 和你选择的文件相关。</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="built_in">log</span> --<span class="built_in">stat</span> | grep -B 10 -A 10 MathJax\\.zip</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="built_in">log</span> --<span class="built_in">stat</span> | grep -B 10 -A 10 MathJax\\.zip</span><br></pre></td></tr></tbody></table></figure>
 <p>在这里， <code>grep</code> 的 A 和 B 参数表示的是 after 和 before，这样可以大致上看到一个 commit 的 context。</p>
 <h3 id="把你所不关心的文件从历史记录中删掉"><a class="markdownIt-Anchor" href="#把你所不关心的文件从历史记录中删掉"></a> 把你所不关心的文件从历史记录中删掉</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ git filter-branch --force --index-filter \</span><br><span class="line">    <span class="string">&#x27;git rm --cache --ignore-unmatch MathJax.zip&#x27;</span> \</span><br><span class="line">    --prune-empty --tag-name-filter <span class="built_in">cat</span> -- --all</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ git filter-branch --force --index-filter \</span><br><span class="line">    <span class="string">'git rm --cache --ignore-unmatch MathJax.zip'</span> \</span><br><span class="line">    --prune-empty --tag-name-filter <span class="built_in">cat</span> -- --all</span><br></pre></td></tr></tbody></table></figure>
 <h3 id="清理下你的本地-git-repo"><a class="markdownIt-Anchor" href="#清理下你的本地-git-repo"></a> 清理下你的本地 git repo</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ git for-each-ref --format=<span class="string">&#x27;delete %(refname)&#x27;</span> refs/original | git update-ref --stdin</span><br><span class="line">$ git reflog expire --expire=now --all</span><br><span class="line">$ git gc --prune=now --aggressive</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ git for-each-ref --format=<span class="string">'delete %(refname)'</span> refs/original | git update-ref --stdin</span><br><span class="line">$ git reflog expire --expire=now --all</span><br><span class="line">$ git gc --prune=now --aggressive</span><br></pre></td></tr></tbody></table></figure>
 <h3 id="强制刷新-remote-repo-的内容"><a class="markdownIt-Anchor" href="#强制刷新-remote-repo-的内容"></a> 强制刷新 remote repo 的内容</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git push origin --force --all</span><br><span class="line">$ git push origin --force --tags</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git push origin --force --all</span><br><span class="line">$ git push origin --force --tags</span><br></pre></td></tr></tbody></table></figure>
 
     </div>
 
@@ -423,6 +423,26 @@ document.addEventListener('page:loaded', () => {
     }));
 });
 </script>
-
+<div class="moon-menu">
+  <div class="moon-menu-items">
+    
+    <div id="moon-menu-item-back2bottom" class="moon-menu-item">
+      <i class='fas fa-chevron-down'></i>    </div>
+    
+    <div id="moon-menu-item-back2top" class="moon-menu-item">
+      <i class='fas fa-chevron-up'></i>    </div>
+    
+  </div>
+  <div class="moon-menu-button">
+    <svg class="moon-menu-bg">
+      <circle class="moon-menu-cricle" cx="50%" cy="50%" r="44%"></circle>
+      <circle class="moon-menu-border" cx="50%" cy="50%" r="48%"></circle>
+    </svg>
+    <div class="moon-menu-content">
+      <div class="moon-menu-icon"><i class='fas fa-ellipsis-v'></i></div>
+      <div class="moon-menu-text"></div>
+    </div>
+  </div>
+</div><script src="/js/injector.js"></script>
 </body>
 </html>

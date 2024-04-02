@@ -27,7 +27,7 @@
 <meta property="og:description" content="简单题，赛后看了一下好多人对数组进行了排序，然后再进行枚举判断，我觉得这样并不是最好的方法，我的方法是开一个 bool 型的数组，has[i] 代表第 iii 天如果冲突，则需要改计划，这样每次对连续的 kkk 天进行枚举，用 O(nk)O(nk)O(nk) 的时间可以直接 check 完，每次检查 kkk 子串后，判断答案，如果比现有答案小，这更新答案，最后返回即可。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2010-07-29T10:39:00.000Z">
-<meta property="article:modified_time" content="2024-03-28T07:50:16.657Z">
+<meta property="article:modified_time" content="2024-04-02T23:47:53.517Z">
 <meta property="article:author" content="Ruins He">
 <meta property="article:tag" content="csdn">
 <meta property="article:tag" content="acm-icpc">
@@ -53,7 +53,7 @@
 
 
 
-
+<link rel="stylesheet" type="text/css" href="/css/injector/main.css" /><link rel="preload" as="style" href="/css/injector/light.css" /><link rel="preload" as="style" href="/css/injector/dark.css" />
   <noscript>
     <link rel="stylesheet" href="/css/noscript.css">
   </noscript>
@@ -281,7 +281,7 @@
     
     <div class="post-body" itemprop="articleBody"><p>简单题，赛后看了一下好多人对数组进行了排序，然后再进行枚举判断，我觉得这样并不是最好的方法，我的方法是开一个 bool 型的数组，<code>has[i]</code> 代表第 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>i</mi></mrow><annotation encoding="application/x-tex">i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.65952em;vertical-align:0em;"></span><span class="mord mathnormal">i</span></span></span></span> 天如果冲突，则需要改计划，这样每次对连续的 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>k</mi></mrow><annotation encoding="application/x-tex">k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.03148em;">k</span></span></span></span> 天进行枚举，用 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mi>n</mi><mi>k</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(nk)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathnormal">n</span><span class="mord mathnormal" style="margin-right:0.03148em;">k</span><span class="mclose">)</span></span></span></span> 的时间可以直接 check 完，每次检查 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>k</mi></mrow><annotation encoding="application/x-tex">k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.03148em;">k</span></span></span></span> 子串后，判断答案，如果比现有答案小，这更新答案，最后返回即可。</p>
 <span id="more"></span>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">bestSchedule</span><span class="params">(<span class="type">int</span> N, <span class="type">int</span> K, vector&lt;<span class="type">int</span>&gt; day)</span> </span>&#123;</span><br><span class="line">  <span class="type">bool</span> has[<span class="number">1100</span>] = &#123;<span class="number">0</span>&#125;;</span><br><span class="line">  <span class="type">int</span> sum, ret = <span class="number">0x3f3f3f3f</span>;</span><br><span class="line">  <span class="type">int</span> n = day.<span class="built_in">size</span>();</span><br><span class="line">  <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">    has[day[i]] = <span class="literal">true</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= N - K + <span class="number">1</span>; i++) &#123;</span><br><span class="line">    sum = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">0</span>; j &lt; K; j++) &#123;</span><br><span class="line">      <span class="keyword">if</span> (has[i + j]) sum++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (sum &lt; ret) ret = sum;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> ret;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">bestSchedule</span><span class="params">(<span class="type">int</span> N, <span class="type">int</span> K, vector&lt;<span class="type">int</span>&gt; day)</span> </span>{</span><br><span class="line">  <span class="type">bool</span> has[<span class="number">1100</span>] = {<span class="number">0</span>};</span><br><span class="line">  <span class="type">int</span> sum, ret = <span class="number">0x3f3f3f3f</span>;</span><br><span class="line">  <span class="type">int</span> n = day.<span class="built_in">size</span>();</span><br><span class="line">  <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i++) {</span><br><span class="line">    has[day[i]] = <span class="literal">true</span>;</span><br><span class="line">  }</span><br><span class="line">  <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= N - K + <span class="number">1</span>; i++) {</span><br><span class="line">    sum = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">0</span>; j &lt; K; j++) {</span><br><span class="line">      <span class="keyword">if</span> (has[i + j]) sum++;</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">if</span> (sum &lt; ret) ret = sum;</span><br><span class="line">  }</span><br><span class="line">  <span class="keyword">return</span> ret;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
 
     </div>
 
@@ -411,6 +411,26 @@ document.addEventListener('page:loaded', () => {
     }));
 });
 </script>
-
+<div class="moon-menu">
+  <div class="moon-menu-items">
+    
+    <div id="moon-menu-item-back2bottom" class="moon-menu-item">
+      <i class='fas fa-chevron-down'></i>    </div>
+    
+    <div id="moon-menu-item-back2top" class="moon-menu-item">
+      <i class='fas fa-chevron-up'></i>    </div>
+    
+  </div>
+  <div class="moon-menu-button">
+    <svg class="moon-menu-bg">
+      <circle class="moon-menu-cricle" cx="50%" cy="50%" r="44%"></circle>
+      <circle class="moon-menu-border" cx="50%" cy="50%" r="48%"></circle>
+    </svg>
+    <div class="moon-menu-content">
+      <div class="moon-menu-icon"><i class='fas fa-ellipsis-v'></i></div>
+      <div class="moon-menu-text"></div>
+    </div>
+  </div>
+</div><script src="/js/injector.js"></script>
 </body>
 </html>

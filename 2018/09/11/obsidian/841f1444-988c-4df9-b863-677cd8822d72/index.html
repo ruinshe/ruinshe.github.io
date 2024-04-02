@@ -27,7 +27,7 @@
 <meta property="og:description" content="When using projectile to manage a project folder, we can customize the project’s properties to help us more easily to build &#x2F; test &#x2F; run the project.">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2018-09-11T13:49:40.000Z">
-<meta property="article:modified_time" content="2024-03-28T07:50:16.790Z">
+<meta property="article:modified_time" content="2024-04-02T23:47:53.634Z">
 <meta property="article:author" content="Ruins He">
 <meta property="article:tag" content="emacs">
 <meta property="article:tag" content="ide">
@@ -54,7 +54,7 @@
 
 
 
-
+<link rel="stylesheet" type="text/css" href="/css/injector/main.css" /><link rel="preload" as="style" href="/css/injector/light.css" /><link rel="preload" as="style" href="/css/injector/dark.css" />
   <noscript>
     <link rel="stylesheet" href="/css/noscript.css">
   </noscript>
@@ -280,13 +280,13 @@
     
     
     
-    <div class="post-body" itemprop="articleBody"><p>When using <code>projectile</code> to manage a project folder, we can customize the project’s properties to<br />
+    <div class="post-body" itemprop="articleBody"><p>When using <code>projectile</code> to manage a project folder, we can customize the project’s properties to<br>
 help us more easily to build / test / run the project.</p>
 <span id="more"></span>
-<p>Assuming we have a folder which contains all files in the project, and we want to quickly build /<br />
-test the project, we can add a <code>.projectile</code> file at the root of the project folder tree, then add<br />
+<p>Assuming we have a folder which contains all files in the project, and we want to quickly build /<br>
+test the project, we can add a <code>.projectile</code> file at the root of the project folder tree, then add<br>
 another <code>.dir-locals.el</code> file describing the customized command.</p>
-<figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">((<span class="name">nil</span> . ((<span class="name">projectile-project-name</span> . <span class="string">&quot;Project name described in the status bar&quot;</span>)</span><br><span class="line">         <span class="comment">;; The empty string indicates current folder is the root of the proejct.</span></span><br><span class="line">	 (<span class="name">projectile-project-compilation-dir</span> . <span class="string">&quot;&quot;</span>)</span><br><span class="line">	 (<span class="name">projectile-enable-caching</span> . <span class="literal">t</span>)</span><br><span class="line">	 <span class="comment">;; Note that the prepare.sh is located at the root of the project.</span></span><br><span class="line">	 (<span class="name">projectile-project-compilation-cmd</span> . <span class="string">&quot;./prepare.sh &amp;&amp; make build&quot;</span>)</span><br><span class="line">	 (<span class="name">projectile-project-test-cmd</span> . <span class="string">&quot;./preare_test.sh &amp;&amp; make test&quot;</span>)</span><br><span class="line">	 (<span class="name">projectile-project-run-cmd</span> . <span class="string">&quot;./start_app_engine &amp;&amp; make deploy&quot;</span>)</span><br><span class="line">	 <span class="comment">;; Bind the .h file from default C header to C++ header.</span></span><br><span class="line">	 (<span class="name">eval</span> . (<span class="name">add-to-list</span> &#x27;auto-mode-alist&#x27;(<span class="string">&quot;\\.h\\&#x27;&quot;</span> . c++-mode))))))</span><br></pre></td></tr></table></figure>
+<figure class="highlight lisp"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">((<span class="name">nil</span> . ((<span class="name">projectile-project-name</span> . <span class="string">"Project name described in the status bar"</span>)</span><br><span class="line">         <span class="comment">;; The empty string indicates current folder is the root of the proejct.</span></span><br><span class="line">	 (<span class="name">projectile-project-compilation-dir</span> . <span class="string">""</span>)</span><br><span class="line">	 (<span class="name">projectile-enable-caching</span> . <span class="literal">t</span>)</span><br><span class="line">	 <span class="comment">;; Note that the prepare.sh is located at the root of the project.</span></span><br><span class="line">	 (<span class="name">projectile-project-compilation-cmd</span> . <span class="string">"./prepare.sh &amp;&amp; make build"</span>)</span><br><span class="line">	 (<span class="name">projectile-project-test-cmd</span> . <span class="string">"./preare_test.sh &amp;&amp; make test"</span>)</span><br><span class="line">	 (<span class="name">projectile-project-run-cmd</span> . <span class="string">"./start_app_engine &amp;&amp; make deploy"</span>)</span><br><span class="line">	 <span class="comment">;; Bind the .h file from default C header to C++ header.</span></span><br><span class="line">	 (<span class="name">eval</span> . (<span class="name">add-to-list</span> 'auto-mode-alist'(<span class="string">"\\.h\\'"</span> . c++-mode))))))</span><br></pre></td></tr></tbody></table></figure>
 
     </div>
 
@@ -417,6 +417,26 @@ document.addEventListener('page:loaded', () => {
     }));
 });
 </script>
-
+<div class="moon-menu">
+  <div class="moon-menu-items">
+    
+    <div id="moon-menu-item-back2bottom" class="moon-menu-item">
+      <i class='fas fa-chevron-down'></i>    </div>
+    
+    <div id="moon-menu-item-back2top" class="moon-menu-item">
+      <i class='fas fa-chevron-up'></i>    </div>
+    
+  </div>
+  <div class="moon-menu-button">
+    <svg class="moon-menu-bg">
+      <circle class="moon-menu-cricle" cx="50%" cy="50%" r="44%"></circle>
+      <circle class="moon-menu-border" cx="50%" cy="50%" r="48%"></circle>
+    </svg>
+    <div class="moon-menu-content">
+      <div class="moon-menu-icon"><i class='fas fa-ellipsis-v'></i></div>
+      <div class="moon-menu-text"></div>
+    </div>
+  </div>
+</div><script src="/js/injector.js"></script>
 </body>
 </html>
