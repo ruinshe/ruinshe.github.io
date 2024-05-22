@@ -26,14 +26,14 @@
 <meta property="og:site_name" content="Ruins He&#39;s house">
 <meta property="og:description" content="最近把之前 Feedly 上的订阅源薅了下来，自己搭了个 RSS 服务器，在自己的主力机（Arch Linux）、笔记本（Windows 11），以及手机（iPhone）上实现了多端同步还有查看，故在此做一个简单的记录。">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://blog.ruinshe.fun/images/obsidian/rss-workflow.excalidraw..png">
+<meta property="og:image" content="https://blog.ruinshe.fun/images/obsidian/100%">
 <meta property="article:published_time" content="2024-03-16T00:34:00.000Z">
-<meta property="article:modified_time" content="2024-05-22T03:32:48.289Z">
+<meta property="article:modified_time" content="2024-05-22T03:46:04.706Z">
 <meta property="article:author" content="Ruins He">
 <meta property="article:tag" content="development">
 <meta property="article:tag" content="rss">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://blog.ruinshe.fun/images/obsidian/rss-workflow.excalidraw..png">
+<meta name="twitter:image" content="https://blog.ruinshe.fun/images/obsidian/100%">
 
 
 <link rel="canonical" href="https://blog.ruinshe.fun/2024/03/16/obsidian/40417926-96cd-46b2-a00c-ef7ff7437417/">
@@ -280,7 +280,7 @@
 <h2 id="背景"><a class="markdownIt-Anchor" href="#背景"></a> 背景</h2>
 <p>RSS 作为我日常生活比较稳定的信息来源，我之前一直是在使用 Feedly 的，但是因为需要打开浏览器，现在也不像在老东家的时候那样，常年开着浏览器窗口了，所以我就想着，折腾一个可以多端同步的解决方案。</p>
 <p>我最终选择的方案如下图所示：</p>
-<img src="/images/obsidian/rss-workflow.excalidraw..png" width="100%">
+<img src="/images/obsidian/100%" width="rss-workflow.excalidraw.png">
 <p>在上图中，电脑和手机通过 Fresh RSS 提供的 API（Fever 或者原生的 Greader），进行数据同步，由于是自己在用，数据传输方面就自己弄个 SSL 证书即可，不需要使用商业的 HTTPS 证书，挂载出来的卷可以进行定期备份，如果有必要（比如说源非常重要，或者说想加固自己的数据），可以考虑使用第三方的 RDS 服务。</p>
 <h2 id="搭建-fresh-rss-服务"><a class="markdownIt-Anchor" href="#搭建-fresh-rss-服务"></a> 搭建 Fresh RSS 服务</h2>
 <p>首先，在自己的服务器上简单创建一个 <code>compose.yaml</code> 文件，用于存储相关的服务清单：</p>
