@@ -155,18 +155,18 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">94</span>
+          <span class="site-state-item-count">95</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-count">5</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">21</span>
+        <span class="site-state-item-count">25</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -215,6 +215,95 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://blog.ruinshe.fun/2024/05/22/obsidian/f965de4e-1a74-49d7-b49a-ca27215a89e5/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Ruins He">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ruins He's house">
+      <meta itemprop="description" content="Ruins He's personal website">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Ruins He's house">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/05/22/obsidian/f965de4e-1a74-49d7-b49a-ca27215a89e5/" class="post-title-link" itemprop="url">跨 Kubernetes 集群对接 Vault by Hashicorp</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：5月 22日, 2024 07:39:00" itemprop="dateCreated datePublished" datetime="2024-05-22T07:39:00+08:00">5月 22日, 2024</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E8%BF%90%E7%BB%B4/" itemprop="url" rel="index"><span itemprop="name">运维</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>这篇文中，我将简单介绍如何在 Kubernetes 集群中通过 Bitnami 社区提供的 Helm Chart 搭建一个 Vault by Hashicorp 服务，并在另外一个 Kubernetes 集群中连接、读取它上面的密钥。</p>
+<p>在理解该篇文章之前，你可能需要有对 Kubernetes 以及 Helm 最基本的了解，如果你对这两者不怎么熟悉，可以到 Kubernetes 官方网站 <sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup>，以及 Helm 的官方网站 <sup class="footnote-ref"><a href="#fn2" id="fnref2">[2]</a></sup>，或者其它 Kubernetes 社区去了解更多的内容。在这篇文章中，我基于 <code>Kubernetes &gt;= 1.24</code> 以及 <code>Helm &gt;= 3.8</code> 进行展开说明。</p>
+<h2 id="vault-by-hashicorp-简介"><a class="markdownIt-Anchor" href="#vault-by-hashicorp-简介"></a> Vault by Hashicorp 简介</h2>
+<p>Vault by HashiCorp<sup class="footnote-ref"><a href="#fn3" id="fnref3">[3]</a></sup> （下文我们简称之为 Vault）是一个专注于安全性的工具，用于存储和管理敏感信息，包括但不限于令牌、密码、证书和加密密钥。它通过多种方式（UI、CLI 和 HTTP API）提供对这些敏感数据的访问控制，确保数据的安全性和保密性。用户可以通过这些接口来安全地存储、检索和管理他们的秘密数据，同时确保对这些数据的访问是经过严格控制的。</p>
+<p>对于 Kubernetes 来说，我们可以配置让它和 Vault 对接，来让特定的服务账号可以访问特定的 KV 密钥，方便不同团队有各自密钥的修改、查看权限，可以有效避免运维人员 “一家独大” 或者说只有他一个人可以修改配置而什么事都让他来做的情况。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2024/05/22/obsidian/f965de4e-1a74-49d7-b49a-ca27215a89e5/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -544,95 +633,6 @@
             </div>
           <!--/noindex-->
         
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://blog.ruinshe.fun/2023/06/07/obsidian/7b7e8787-da60-4964-bb92-5d924176696a/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="Ruins He">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Ruins He's house">
-      <meta itemprop="description" content="Ruins He's personal website">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Ruins He's house">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2023/06/07/obsidian/7b7e8787-da60-4964-bb92-5d924176696a/" class="post-title-link" itemprop="url">压缩 WSL2 的虚拟磁盘</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：6月 7日, 2023 23:43:00" itemprop="dateCreated datePublished" datetime="2023-06-07T23:43:00+08:00">6月 7日, 2023</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/development/" itemprop="url" rel="index"><span itemprop="name">development</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>在使用 WSL2 的时候，我们有的时候会因为不断增减文件，导致对应的虚拟磁盘的文件大小远超过预期，并且需要进行清理，我们可以通过 <code>diskpart</code> 打开虚拟磁盘管理工具，然后通过如下命令进行操作 <sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup>：</p>
-<figure class="highlight powershell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">select</span> vdisk file=<span class="string">"D:\Arch\ext4.vhdx"</span></span><br><span class="line">compact vdisk</span><br></pre></td></tr></tbody></table></figure>
-<div class="note warning"><p style="text-decoration: underline;">关于文件路径</p>
-<p><code>diskpart</code> 工具选择磁盘的时候，需要绝对路径。</p>
-</div>
-<hr class="footnotes-sep">
-<section class="footnotes">
-<ol class="footnotes-list">
-<li id="fn1" class="footnote-item"><p><a target="_blank" rel="noopener" href="https://stephenreescarter.net/how-to-shrink-a-wsl2-virtual-disk/">https://stephenreescarter.net/how-to-shrink-a-wsl2-virtual-disk/</a> <a href="#fnref1" class="footnote-backref">↩︎</a></p>
-</li>
-</ol>
-</section>
-
       
     </div>
 

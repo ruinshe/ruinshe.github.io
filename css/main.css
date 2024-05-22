@@ -2693,7 +2693,7 @@ header.header {
   vertical-align: middle;
 }
 .links-of-author a::before {
-  background: #667cf9;
+  background: #324ffc;
   display: inline-block;
   margin-right: 3px;
   transform: translateY(-2px);
@@ -2759,4 +2759,8 @@ header.header {
 ol p,
 li p {
   text-indent: unset !important;
+}
+mark {
+  background-color: rgba(255,247,153,0.847);
+  border-bottom: 2px solid #ffd234;
 }
