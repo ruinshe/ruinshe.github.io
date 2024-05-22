@@ -28,7 +28,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://blog.ruinshe.fun/images/obsidian/rss-workflow.excalidraw..png">
 <meta property="article:published_time" content="2024-03-16T00:34:00.000Z">
-<meta property="article:modified_time" content="2024-05-22T03:24:51.042Z">
+<meta property="article:modified_time" content="2024-05-22T03:32:48.289Z">
 <meta property="article:author" content="Ruins He">
 <meta property="article:tag" content="development">
 <meta property="article:tag" content="rss">
@@ -315,7 +315,7 @@
 </ol>
 <p>配置完毕之后，可以直接 <code>docker compose up -d</code> 开启服务。</p>
 <h3 id="安装自己的-ca-证书"><a class="markdownIt-Anchor" href="#安装自己的-ca-证书"></a> 安装自己的 CA 证书</h3>
-<div class="tabs" id="callouts-1"><ul class="nav-tabs"><li class="tab active"><a href="#callouts-1-1">Windows</a></li><li class="tab"><a href="#callouts-1-2">Arch</a></li><li class="tab"><a href="#callouts-1-3">iPhone</a></li></ul><div class="tab-content"><div class="tab-pane active" id="callouts-1-1"><p>下载自己的证书，重命名为 <code>crt</code> 格式，打开它之后进行安装，安装的时候选择 “将所有的证书都放入下列存储”，并选择 “受信任的根证书颁发机构”，就可以安装并信任自己的 CA 证书了。</p></div><div class="tab-pane" id="callouts-1-2"><p>直接使用 <code>trust</code> <sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup> 命令安装就可以：</p>
+<div class="tabs" id="callouts-1"><ul class="nav-tabs"><li class="tab active"><a href="#callouts-1-1">Windows 11</a></li><li class="tab"><a href="#callouts-1-2">Arch Linux</a></li><li class="tab"><a href="#callouts-1-3">iPhone</a></li></ul><div class="tab-content"><div class="tab-pane active" id="callouts-1-1"><p>下载自己的证书，重命名为 <code>crt</code> 格式，打开它之后进行安装，安装的时候选择 “将所有的证书都放入下列存储”，并选择 “受信任的根证书颁发机构”，就可以安装并信任自己的 CA 证书了。</p></div><div class="tab-pane" id="callouts-1-2"><p>直接使用 <code>trust</code> <sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup> 命令安装就可以：</p>
 <figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo trust anchor --store&nbsp;rootCA.crt</span><br></pre></td></tr></tbody></table></figure>
 <hr class="footnotes-sep">
 <section class="footnotes">
