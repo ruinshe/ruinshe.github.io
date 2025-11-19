@@ -27,11 +27,11 @@
 <meta property="og:description" content="在图论中经常遇到一些很常见的问题，比如一个非常简单的例子，给你一棵树，每一个点都有一个权值，现在动态更新一个点的权值，叫你查询一个点对路径上所有点权的和，这种问题和图论的 Tree&nbsp;&nbsp;Problem 非常类似，我们可以利用树形结构转线性结构的方法来处理，我们考虑随便取一个点，比如说 111，作为根，这样我们就可以得到一个 DFS 序列，注意我们维护一个长度为 2×N2 \tim">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2011-08-31T02:03:00.000Z">
-<meta property="article:modified_time" content="2024-05-22T03:49:29.748Z">
+<meta property="article:modified_time" content="2025-11-19T01:12:55.124Z">
 <meta property="article:author" content="Ruins He">
-<meta property="article:tag" content="csdn">
-<meta property="article:tag" content="acm-icpc">
-<meta property="article:tag" content="essay">
+<meta property="article:tag" content="CSDN">
+<meta property="article:tag" content="ICPC">
+<meta property="article:tag" content="杂谈">
 <meta name="twitter:card" content="summary">
 
 
@@ -189,12 +189,12 @@
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-count">7</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">25</span>
+        <span class="site-state-item-count">31</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -290,7 +290,11 @@
       </span>
       <span class="post-meta-item-text">分类于</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/essay/" itemprop="url" rel="index"><span itemprop="name">essay</span></a>
+          <a href="/categories/%E6%9D%82%E8%B0%88/" itemprop="url" rel="index"><span itemprop="name">杂谈</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%9D%82%E8%B0%88/ICPC%E6%80%BB%E7%BB%93/" itemprop="url" rel="index"><span itemprop="name">ICPC总结</span></a>
         </span>
     </span>
 
@@ -352,7 +356,6 @@
 <p>第一个例子很简单，给你一棵树，现在有两种操作，一种是一个边的权值加 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>v</mi></mrow><annotation encoding="application/x-tex">v</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">v</span></span></span></span>，另一个是查询两个点的距离，这个问题我们可以这么考虑，用点权代替边权，DFS 得到父亲结点和孩子结点的关系之后，我们用一个点的权值来代替连进这个点的边权的权值，这样就可以转化为括号序列的问题了。</p>
 <p>第二个例子，是给你一棵树，每次可以更新一个边的边权，保证边权是正的，求任意点到根的距离的最大值，我们可以这么考虑，直接利用第一个例子的结论，记录前缀和的最大值即可，然后我们就可以在 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mi>N</mi><mi>lg</mi><mo>⁡</mo><mi>N</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(N \lg N)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.10903em;">N</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mop">l<span style="margin-right:0.01389em;">g</span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">N</span><span class="mclose">)</span></span></span></span> 的时间内来维护这个性质。</p>
 <p>总之，边权的问题我们可以用点权来代替，如果遇到一些恶心的题目，既有边权又有点权的，我们可以考虑用多棵线段树或者树状数组来维护边权和点权，这样我们就可以在 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mi>N</mi><mi>lg</mi><mo>⁡</mo><mi>N</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(N \lg N)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.10903em;">N</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mop">l<span style="margin-right:0.01389em;">g</span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">N</span><span class="mclose">)</span></span></span></span> 的时间内完成相应的更新、查询操作。</p>
-<p>​</p>
 
     </div>
 
@@ -362,9 +365,9 @@
 
     <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/csdn/" rel="tag"># csdn</a>
-              <a href="/tags/acm-icpc/" rel="tag"># acm-icpc</a>
-              <a href="/tags/essay/" rel="tag"># essay</a>
+              <a href="/tags/CSDN/" rel="tag"># CSDN</a>
+              <a href="/tags/ICPC/" rel="tag"># ICPC</a>
+              <a href="/tags/%E6%9D%82%E8%B0%88/" rel="tag"># 杂谈</a>
           </div>
 
         
