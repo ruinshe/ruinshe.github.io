@@ -28,7 +28,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://gateway-api.sigs.k8s.io/images/resource-model.png">
 <meta property="article:published_time" content="2025-11-23T05:55:00.000Z">
-<meta property="article:modified_time" content="2025-11-24T06:52:38.785Z">
+<meta property="article:modified_time" content="2025-11-24T06:59:39.799Z">
 <meta property="article:author" content="Ruins He">
 <meta property="article:tag" content="软件开发&#x2F;部署">
 <meta property="article:tag" content="运维&#x2F;配置">
@@ -314,6 +314,7 @@
     
     <div class="post-body" itemprop="articleBody"><p>随着 Kubernetes 生态的不断演进，流量治理的标准也在发生深刻的变革。对于长期维护自建 Kubernetes 集群（On-Premise/Bare Metal）的团队而言，Ingress Nginx Controller 一直是处理南北向流量的事实标准。然而，随着技术的迭代，特别是面对 Ingress NGINX 即将退役的消息，寻找下一代流量网关解决方案已迫在眉睫。</p>
 <p>本文将详细探讨在非云环境（即无法直接使用云厂商 LoadBalancer Service）的场景下，如何使用 <strong>Envoy Gateway</strong> 和 <strong>Gateway API</strong> 替代传统的 Ingress Nginx Controller，实现平滑迁移与架构升级。</p>
+<span id="more"></span>
 <h2 id="背景ingress-nginx-的谢幕与-gateway-api-的崛起"><a class="markdownIt-Anchor" href="#背景ingress-nginx-的谢幕与-gateway-api-的崛起"></a> 背景：Ingress NGINX 的谢幕与 Gateway API 的崛起</h2>
 <h3 id="官方公告的影响"><a class="markdownIt-Anchor" href="#官方公告的影响"></a> 官方公告的影响</h3>
 <p>Kubernetes SIG Network 和安全响应委员会已正式宣布 Ingress NGINX 进入退役倒计时 <sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup>。尽管尽力维护（Best-effort maintenance）将持续至 2026 年 3 月，但在此之后，社区将停止发布新版本、错误修复以及针对新发现安全漏洞的补丁。</p>
